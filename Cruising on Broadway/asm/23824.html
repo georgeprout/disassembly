@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 5d10</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="23817.html">5d09</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#23824">Map</a></td>
+<td class="next">
+Next: <a href="23831.html">5d17</a>
+</td>
+</tr>
+</table>
+<div class="description">5d10: Test for movement right</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="23817.html">5d09</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23824"></span>5d10</td>
+<td class="instruction">bit 1,c</td>
+<td class="comment-1" rowspan="1">bit 1 of direction (0x22 = Right)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23826"></span>5d12</td>
+<td class="instruction">jr z,<a href="23831.html">$5d17</a></td>
+<td class="comment-1" rowspan="1">Not moving right, must be left</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23828"></span>5d14</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">Add one to position (right one column)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23829"></span>5d15</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="2">Get attribute of position right</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23830"></span>5d16</td>
+<td class="instruction">ret</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="23817.html">5d09</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#23824">Map</a></td>
+<td class="next">
+Next: <a href="23831.html">5d17</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

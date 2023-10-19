@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 66b7</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26215.html">6667</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26295">Map</a></td>
+<td class="next">
+Next: <a href="26483.html">6773</a>
+</td>
+</tr>
+</table>
+<div class="description">66b7: Print instructions page 1</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="27000.html">6978</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26295"></span>66b7</td>
+<td class="instruction">call <a href="26215.html">$6667</a></td>
+<td class="comment-1" rowspan="1">Draw box</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26298"></span>
+<div class="comments">
+<div class="paragraph">
+Print "I N S T R U C T I O N S" individually
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26298"></span>66ba</td>
+<td class="instruction">ld hl,$658f</td>
+<td class="comment-1" rowspan="1">"INSTRUCTIONS" <a href="25999.html">658f</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26301"></span>66bd</td>
+<td class="instruction">ld b,$0c</td>
+<td class="comment-1" rowspan="1">Counter = number of letters</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26303"></span>66bf</td>
+<td class="instruction">ld de,$0304</td>
+<td class="comment-1" rowspan="1">Row 3, column 4</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26306"></span>66c2</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1">Save BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26307"></span>66c3</td>
+<td class="instruction">push de</td>
+<td class="comment-1" rowspan="1">Save DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26308"></span>66c4</td>
+<td class="instruction">call <a href="25986.html">$6582</a></td>
+<td class="comment-1" rowspan="1">Set colour to red or magnenta</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26311"></span>66c7</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message (each letter is separate)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26314"></span>66ca</td>
+<td class="instruction">ld de,$1080</td>
+<td class="comment-1" rowspan="2">short beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26317"></span>66cd</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26320"></span>66d0</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">Move HL pointer to next letter</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26321"></span>66d1</td>
+<td class="instruction">pop de</td>
+<td class="comment-1" rowspan="1">Restore DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26322"></span>66d2</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1">Restore BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26323"></span>66d3</td>
+<td class="instruction">inc e</td>
+<td class="comment-1" rowspan="2">Add 2 to column</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26324"></span>66d4</td>
+<td class="instruction">inc e</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26325"></span>66d5</td>
+<td class="instruction">djnz $66c2</td>
+<td class="comment-1" rowspan="1">Repeat for each letter in "INSTRUCTIONS"</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26327"></span>
+<div class="comments">
+<div class="paragraph">
+Print main instructions text
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26327"></span>66d7</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="1">0.48 second delay</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26330"></span>66da</td>
+<td class="instruction">ld hl,$659b</td>
+<td class="comment-1" rowspan="1">"The object of this game is to" <a href="25999.html#26011">659b</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26333"></span>66dd</td>
+<td class="instruction">ld de,$0601</td>
+<td class="comment-1" rowspan="1">Row 6, column 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26336"></span>66e0</td>
+<td class="instruction">ld c,$06</td>
+<td class="comment-1" rowspan="1">Yellow</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26338"></span>66e2</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26341"></span>66e5</td>
+<td class="instruction">ld b,$10</td>
+<td class="comment-1" rowspan="2">Short Whoop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26343"></span>66e7</td>
+<td class="instruction">call <a href="25044.html">$61d4</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26346"></span>66ea</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="2">Pause 1 second</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26349"></span>66ed</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26352"></span>66f0</td>
+<td class="instruction">ld hl,$65b8</td>
+<td class="comment-1" rowspan="1">"travel along every line in the" <a href="25999.html#26040">65b8</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26355"></span>66f3</td>
+<td class="instruction">ld de,$0801</td>
+<td class="comment-1" rowspan="1">Row 8, column 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26358"></span>66f6</td>
+<td class="instruction">ld c,$06</td>
+<td class="comment-1" rowspan="1">Yellow</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26360"></span>66f8</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Printer message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26363"></span>66fb</td>
+<td class="instruction">ld b,$12</td>
+<td class="comment-1" rowspan="2">Short Whoop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26365"></span>66fd</td>
+<td class="instruction">call <a href="25044.html">$61d4</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26368"></span>6700</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="2">Pause 1 second</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26371"></span>6703</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26374"></span>6706</td>
+<td class="instruction">ld hl,$65d6</td>
+<td class="comment-1" rowspan="1">"frame  in the shortest time" <a href="25999.html#26070">65d6</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26377"></span>6709</td>
+<td class="instruction">ld de,$0a01</td>
+<td class="comment-1" rowspan="1">Row 10, column 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26380"></span>670c</td>
+<td class="instruction">ld c,$06</td>
+<td class="comment-1" rowspan="1">Yellow</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26382"></span>670e</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26385"></span>6711</td>
+<td class="instruction">ld b,$14</td>
+<td class="comment-1" rowspan="2">Short whoop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26387"></span>6713</td>
+<td class="instruction">call <a href="25044.html">$61d4</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26390"></span>6716</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="2">Pause 1 second</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26393"></span>6719</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26396"></span>
+<div class="comments">
+<div class="paragraph">
+Print "BUT BEWARE OF THE CHASER" letters individually
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26396"></span>671c</td>
+<td class="instruction">ld hl,$65f1</td>
+<td class="comment-1" rowspan="1">"BUT BEWARE OF THE CHASER" <a href="25999.html#26097">65f1</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26399"></span>671f</td>
+<td class="instruction">ld de,$0d03</td>
+<td class="comment-1" rowspan="1">Row 13, column 3</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26402"></span>6722</td>
+<td class="instruction">ld b,$1b</td>
+<td class="comment-1" rowspan="1">Length of message (each letter has bit 7 set)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26404"></span>6724</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1">Save BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26405"></span>6725</td>
+<td class="instruction">push de</td>
+<td class="comment-1" rowspan="1">Save DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26406"></span>6726</td>
+<td class="instruction">call <a href="25986.html">$6582</a></td>
+<td class="comment-1" rowspan="1">Set colour to red or mageneta</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26409"></span>6729</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message (single letter)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26412"></span>672c</td>
+<td class="instruction">ld de,$4040</td>
+<td class="comment-1" rowspan="2">Short beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26415"></span>672f</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26418"></span>6732</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">Advance message pointer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26419"></span>6733</td>
+<td class="instruction">pop de</td>
+<td class="comment-1" rowspan="1">Restore DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26420"></span>6734</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1">Restore BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26421"></span>6735</td>
+<td class="instruction">inc e</td>
+<td class="comment-1" rowspan="1">Increment column number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26422"></span>6736</td>
+<td class="instruction">djnz $6724</td>
+<td class="comment-1" rowspan="1">Repeat for each letter</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26424"></span>6738</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="1">0.48 second delay</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26427"></span>
+<div class="comments">
+<div class="paragraph">
+Print blocker instructions
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26427"></span>673b</td>
+<td class="instruction">ld hl,$660c</td>
+<td class="comment-1" rowspan="1">"Your only defence is to create" <a href="25999.html#26124">660c</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26430"></span>673e</td>
+<td class="instruction">ld de,$1001</td>
+<td class="comment-1" rowspan="1">Row 16, column 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26433"></span>6741</td>
+<td class="instruction">ld c,$46</td>
+<td class="comment-1" rowspan="1">Bright yellow on blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26435"></span>6743</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26438"></span>6746</td>
+<td class="instruction">ld b,$1d</td>
+<td class="comment-1" rowspan="2">Short whoop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26440"></span>6748</td>
+<td class="instruction">call <a href="25044.html">$61d4</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26443"></span>674b</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="2">1 second delay</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26446"></span>674e</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26449"></span>6751</td>
+<td class="instruction">ld hl,$662a</td>
+<td class="comment-1" rowspan="1">"a gap in the trail behind you" <a href="25999.html#26154">662a</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26452"></span>6754</td>
+<td class="instruction">ld de,$1201</td>
+<td class="comment-1" rowspan="1">Row 18, column 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26455"></span>6757</td>
+<td class="instruction">ld c,$46</td>
+<td class="comment-1" rowspan="1">Bright yellow on blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26457"></span>6759</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26460"></span>675c</td>
+<td class="instruction">ld b,$40</td>
+<td class="comment-1" rowspan="2">Short whoop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26462"></span>675e</td>
+<td class="instruction">call <a href="25044.html">$61d4</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26465"></span>6761</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="2">Wait one second</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26468"></span>6764</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26471"></span>
+<div class="comments">
+<div class="paragraph">
+Print "press any key"
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26471"></span>6767</td>
+<td class="instruction">ld hl,$6647</td>
+<td class="comment-1" rowspan="1">"PRESS ANY KEY" <a href="25999.html#26183">6647</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26474"></span>676a</td>
+<td class="instruction">ld de,$1509</td>
+<td class="comment-1" rowspan="1">Row 21, column 9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26477"></span>676d</td>
+<td class="instruction">ld c,$c6</td>
+<td class="comment-1" rowspan="1">Flashing bright yellow on blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26479"></span>676f</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="2">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26482"></span>6772</td>
+<td class="instruction">ret</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26215.html">6667</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26295">Map</a></td>
+<td class="next">
+Next: <a href="26483.html">6773</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

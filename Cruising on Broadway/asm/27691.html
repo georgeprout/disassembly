@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 6c2b</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27680.html">6c20</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#27691">Map</a></td>
+<td class="next">
+Next: <a href="27881.html">6ce9</a>
+</td>
+</tr>
+</table>
+<div class="description">6c2b: New High Score</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27691"></span>6c2b</td>
+<td class="instruction">ld c,$0f</td>
+<td class="comment-1" rowspan="1">white on blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27693"></span>6c2d</td>
+<td class="instruction">ld hl,$6b60</td>
+<td class="comment-1" rowspan="1">"YOU HAVE A HIGH SCORE !!" <a href="27488.html">6b60</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27696"></span>6c30</td>
+<td class="instruction">ld de,$0a04</td>
+<td class="comment-1" rowspan="1">Row 10, column 4</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27699"></span>6c33</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27702"></span>6c36</td>
+<td class="instruction">ld hl,$6b78</td>
+<td class="comment-1" rowspan="1">"Please enter your name" <a href="27488.html#27512">6b78</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27705"></span>6c39</td>
+<td class="instruction">ld de,$0e05</td>
+<td class="comment-1" rowspan="1">Row 14, column 5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27708"></span>6c3c</td>
+<td class="instruction">ld c,$0f</td>
+<td class="comment-1" rowspan="1">white on blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27710"></span>6c3e</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27713"></span>6c41</td>
+<td class="instruction">ld hl,$6b90</td>
+<td class="comment-1" rowspan="1">". . . . . . . ." <a href="27488.html#27536">6b90</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27716"></span>6c44</td>
+<td class="instruction">ld de,$1208</td>
+<td class="comment-1" rowspan="1">Row 18, column 8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27719"></span>6c47</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message (name entry)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27722"></span>6c4a</td>
+<td class="instruction">ld b,$08</td>
+<td class="comment-1" rowspan="1">8 characters</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27724"></span>6c4c</td>
+<td class="instruction">ld hl,$6c0e</td>
+<td class="comment-1" rowspan="1">Last byte of name entry area <a href="27488.html#27654">6c06</a></td>
+</tr>
+<tr>
+<td class="address-2"><span id="27727"></span>6c4f</td>
+<td class="instruction">dec hl</td>
+<td class="comment-1" rowspan="1">dec name entry pointer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27728"></span>6c50</td>
+<td class="instruction">ld (hl),$20</td>
+<td class="comment-1" rowspan="1">Clear character with a space</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27730"></span>6c52</td>
+<td class="instruction">djnz $6c4f</td>
+<td class="comment-1" rowspan="1">Repeat 8 times (name cleared)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27732"></span>6c54</td>
+<td class="instruction">ld b,$08</td>
+<td class="comment-1" rowspan="1">8 characters to enter</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27734"></span>6c56</td>
+<td class="instruction">ld de,$1208</td>
+<td class="comment-1" rowspan="1">Row 18, column 8</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27737"></span>6c59</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1">Save BC for later</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27738"></span>6c5a</td>
+<td class="instruction">call <a href="23855.html">$5d2f</a></td>
+<td class="comment-1" rowspan="1">Get keypress</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27741"></span>6c5d</td>
+<td class="instruction">jr z,$6c5a</td>
+<td class="comment-1" rowspan="1">Loop until a key is pressed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27743"></span>6c5f</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1">Restore BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27744"></span>6c60</td>
+<td class="instruction">rst $38</td>
+<td class="comment-1" rowspan="1">Trigger</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27745"></span>6c61</td>
+<td class="instruction">ld a,($5c08)</td>
+<td class="comment-1" rowspan="1">Get last key from LAST-K system variable</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27748"></span>6c64</td>
+<td class="instruction">cp $0d</td>
+<td class="comment-1" rowspan="1">Was ENTER pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27750"></span>6c66</td>
+<td class="instruction">jr z,$6c8b</td>
+<td class="comment-1" rowspan="1">Skip ahead</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27752"></span>6c68</td>
+<td class="instruction">ld a,($5c04)</td>
+<td class="comment-1" rowspan="1">KSTATE (keypress) system variable</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27755"></span>6c6b</td>
+<td class="instruction">cp $ff</td>
+<td class="comment-1" rowspan="1">ff = no keypress</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27757"></span>6c6d</td>
+<td class="instruction">jr z,$6c59</td>
+<td class="comment-1" rowspan="1">loop if no valid keypress</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27759"></span>6c6f</td>
+<td class="instruction">ld (hl),a</td>
+<td class="comment-1" rowspan="1">Store character pressed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27760"></span>6c70</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">advance pointer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27761"></span>6c71</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1">Store HL for later</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27762"></span>6c72</td>
+<td class="instruction">ld hl,$6c1f</td>
+<td class="comment-1" rowspan="1">Some kind of flag</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27765"></span>6c75</td>
+<td class="instruction">set 7,a</td>
+<td class="comment-1" rowspan="1">Set high bit</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27767"></span>6c77</td>
+<td class="instruction">ld (hl),a</td>
+<td class="comment-1" rowspan="1">Save character</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27768"></span>6c78</td>
+<td class="instruction">ld c,$0f</td>
+<td class="comment-1" rowspan="1">white on blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27770"></span>6c7a</td>
+<td class="instruction">push de</td>
+<td class="comment-1" rowspan="2">Save DE and BC for later</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27771"></span>6c7b</td>
+<td class="instruction">push bc</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27772"></span>6c7c</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message (name entered so far)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27775"></span>6c7f</td>
+<td class="instruction">call <a href="23855.html">$5d2f</a></td>
+<td class="comment-1" rowspan="1">Get keypress</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27778"></span>6c82</td>
+<td class="instruction">jr nz,$6c7f</td>
+<td class="comment-1" rowspan="1">Loop until keypressed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27780"></span>6c84</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="3">Restore saved registers</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27781"></span>6c85</td>
+<td class="instruction">pop de</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27782"></span>6c86</td>
+<td class="instruction">pop hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27783"></span>6c87</td>
+<td class="instruction">inc e</td>
+<td class="comment-1" rowspan="2">Add 2 to column number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27784"></span>6c88</td>
+<td class="instruction">inc e</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27785"></span>6c89</td>
+<td class="instruction">djnz $6c59</td>
+<td class="comment-1" rowspan="1">Repeat for 8 characters</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27787"></span>
+<div class="comments">
+<div class="paragraph">
+Enter pressed or 8 characters entered
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27787"></span>6c8b</td>
+<td class="instruction">ld b,$04</td>
+<td class="comment-1" rowspan="1">Loop 4 times</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27789"></span>6c8d</td>
+<td class="instruction">ld hl,$6bbb</td>
+<td class="comment-1" rowspan="1">High score 5 name - part of <a href="27488.html#27574">6bb6</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27792"></span>6c90</td>
+<td class="instruction">ld ($6c1b),hl</td>
+<td class="comment-1" rowspan="1">Save pointer to name</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27795"></span>6c93</td>
+<td class="instruction">ld ix,$6c0f</td>
+<td class="comment-1" rowspan="1">High score table (entry 5)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27799"></span>6c97</td>
+<td class="instruction">ld ($6c19),ix</td>
+<td class="comment-1" rowspan="1">Save pointer to score</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27803"></span>6c9b</td>
+<td class="instruction">inc ix</td>
+<td class="comment-1" rowspan="2">Next entry in high score table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27805"></span>6c9d</td>
+<td class="instruction">inc ix</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27807"></span>6c9f</td>
+<td class="instruction">ld hl,($5ceb)</td>
+<td class="comment-1" rowspan="1">HL = total score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27810"></span>6ca2</td>
+<td class="instruction">ld e,(ix+$00)</td>
+<td class="comment-1" rowspan="2">DE = next high score entry</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27813"></span>6ca5</td>
+<td class="instruction">ld d,(ix+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27816"></span>6ca8</td>
+<td class="instruction">ld b,d</td>
+<td class="comment-1" rowspan="2">BC = next high score entry</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27817"></span>6ca9</td>
+<td class="instruction">ld c,e</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27818"></span>6caa</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1">clear flags</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27819"></span>6cab</td>
+<td class="instruction">sbc hl,de</td>
+<td class="comment-1" rowspan="1">Is score less than "next high score"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27821"></span>6cad</td>
+<td class="instruction">jr c,$6cd3</td>
+<td class="comment-1" rowspan="1">Jump if we found the position in the table</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27823"></span>
+<div class="comments">
+<div class="paragraph">
+Player has scored higher than postion 5
+</div>
+<div class="paragraph">
+Names and scores need to be moved down
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27823"></span>6caf</td>
+<td class="instruction">ld hl,($6c19)</td>
+<td class="comment-1" rowspan="1">HL = pointer to score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27826"></span>6cb2</td>
+<td class="instruction">ld ($6c19),ix</td>
+<td class="comment-1" rowspan="1">Update pointer to next position in high score table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27830"></span>6cb6</td>
+<td class="instruction">ld a,(ix+$00)</td>
+<td class="comment-1" rowspan="1">Get high score 4 lsb</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27833"></span>6cb9</td>
+<td class="instruction">ld (hl),a</td>
+<td class="comment-1" rowspan="1">Save as high score 5 lsb</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27834"></span>6cba</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">advance pointer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27835"></span>6cbb</td>
+<td class="instruction">ld a,(ix+$01)</td>
+<td class="comment-1" rowspan="1">Get high score 4 msb</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27838"></span>6cbe</td>
+<td class="instruction">ld (hl),a</td>
+<td class="comment-1" rowspan="1">Save as high score 5 msb</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27839"></span>6cbf</td>
+<td class="instruction">ld hl,($6c1b)</td>
+<td class="comment-1" rowspan="1">HL = pointer to name in high score table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27842"></span>6cc2</td>
+<td class="instruction">ex de,hl</td>
+<td class="comment-1" rowspan="1">DE = pointer to name in high score table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27843"></span>6cc3</td>
+<td class="instruction">ld hl,$0010</td>
+<td class="comment-1" rowspan="1">HL = 16 (0x10)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27846"></span>6cc6</td>
+<td class="instruction">add hl,de</td>
+<td class="comment-1" rowspan="1">HL points to high score entry 4 name</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27847"></span>6cc7</td>
+<td class="instruction">ld ($6c1b),hl</td>
+<td class="comment-1" rowspan="1">Update name pointer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27850"></span>6cca</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1">Save BC for later</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27851"></span>6ccb</td>
+<td class="instruction">ld bc,$0008</td>
+<td class="comment-1" rowspan="1">8 characters in name</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27854"></span>6cce</td>
+<td class="instruction">ldir</td>
+<td class="comment-1" rowspan="1">Copy High Score 4 name to High Score 5 name</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27856"></span>6cd0</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1">Restore BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27857"></span>6cd1</td>
+<td class="instruction">djnz $6c9b</td>
+<td class="comment-1" rowspan="1">repeat 4 times; 5-4, 3-4, 2-3, 1-2</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27859"></span>
+<div class="comments">
+<div class="paragraph">
+High score table has been shuffled as needed, save score and name
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27859"></span>6cd3</td>
+<td class="instruction">ld de,($5ceb)</td>
+<td class="comment-1" rowspan="1">Total score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27863"></span>6cd7</td>
+<td class="instruction">ld hl,($6c19)</td>
+<td class="comment-1" rowspan="1">HL = pointer to score in high score table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27866"></span>6cda</td>
+<td class="instruction">ld (hl),e</td>
+<td class="comment-1" rowspan="3">Save score in high score table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27867"></span>6cdb</td>
+<td class="instruction">inc hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27868"></span>6cdc</td>
+<td class="instruction">ld (hl),d</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27869"></span>6cdd</td>
+<td class="instruction">ld de,($6c1b)</td>
+<td class="comment-1" rowspan="1">DE = pointer to name in high score table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27873"></span>6ce1</td>
+<td class="instruction">ld hl,$6c06</td>
+<td class="comment-1" rowspan="1">HL = Entered name <a href="27488.html#27654">6c06</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27876"></span>6ce4</td>
+<td class="instruction">ld bc,$0008</td>
+<td class="comment-1" rowspan="1">8 characters in name</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27879"></span>6ce7</td>
+<td class="instruction">ldir</td>
+<td class="comment-1" rowspan="1">Copy entered name into high score table</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27680.html">6c20</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#27691">Map</a></td>
+<td class="next">
+Next: <a href="27881.html">6ce9</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

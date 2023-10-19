@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 6af7</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27265.html">6a81</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#27383">Map</a></td>
+<td class="next">
+Next: <a href="27401.html">6b09</a>
+</td>
+</tr>
+</table>
+<div class="description">6af7: Wait for 16 seconds unless a key is pressed</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="27401.html#27426">6b22</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27383"></span>6af7</td>
+<td class="instruction">ld hl,$c000</td>
+<td class="comment-1" rowspan="1">0x4000/16384 times (~1mS each loop = ~16 seconds total)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27386"></span>6afa</td>
+<td class="instruction">ld b,$00</td>
+<td class="comment-1" rowspan="2">loop here 256 times</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27388"></span>6afc</td>
+<td class="instruction">djnz $6afc</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27390"></span>6afe</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">increase counter</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27391"></span>6aff</td>
+<td class="instruction">ld a,h</td>
+<td class="comment-1" rowspan="2">Is HL == 0?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27392"></span>6b00</td>
+<td class="instruction">or l</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27393"></span>6b01</td>
+<td class="instruction">jr z,<a href="27401.html">$6b09</a></td>
+<td class="comment-1" rowspan="1">Timed out on menu, show a demo frame</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27395"></span>6b03</td>
+<td class="instruction">call <a href="23855.html">$5d2f</a></td>
+<td class="comment-1" rowspan="1">Key pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27398"></span>6b06</td>
+<td class="instruction">ret nz</td>
+<td class="comment-1" rowspan="1">Check which key it was</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27399"></span>6b07</td>
+<td class="instruction">jr $6afa</td>
+<td class="comment-1" rowspan="1">Loop 16384 times</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27265.html">6a81</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#27383">Map</a></td>
+<td class="next">
+Next: <a href="27401.html">6b09</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 5d67</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="23899.html">5d5b</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#23911">Map</a></td>
+<td class="next">
+Next: <a href="24002.html">5dc2</a>
+</td>
+</tr>
+</table>
+<div class="description">5d67: Reduce time bonus Check blocker timer</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="23899.html">5d5b</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23911"></span>5d67</td>
+<td class="instruction">ld hl,($5ce2)</td>
+<td class="comment-1" rowspan="1">Get time bonus value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23914"></span>5d6a</td>
+<td class="instruction">dec hl</td>
+<td class="comment-1" rowspan="1">Subtract 1 from time bonus</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23915"></span>5d6b</td>
+<td class="instruction">ld a,h</td>
+<td class="comment-1" rowspan="2">Or H and L together to see if both are zero</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23916"></span>5d6c</td>
+<td class="instruction">or l</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23917"></span>5d6d</td>
+<td class="instruction">jr nz,$5d70</td>
+<td class="comment-1" rowspan="1">If time bonus is zero then</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23919"></span>5d6f</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">add one to prevent rollover</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23920"></span>5d70</td>
+<td class="instruction">ld ($5ce2),hl</td>
+<td class="comment-1" rowspan="1">Save new time bonus value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23923"></span>5d73</td>
+<td class="instruction">ld a,($5ce4)</td>
+<td class="comment-1" rowspan="1">Get blocker timer value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23926"></span>5d76</td>
+<td class="instruction">cp $01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="23928"></span>5d78</td>
+<td class="instruction">jr nz,$5d7f</td>
+<td class="comment-1" rowspan="1">JP if timer has not expired</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23930"></span>5d7a</td>
+<td class="instruction">ld hl,($5ce5)</td>
+<td class="comment-1" rowspan="1">Get blocker position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23933"></span>5d7d</td>
+<td class="instruction">ld (hl),$04</td>
+<td class="comment-1" rowspan="1">Set blocker attribute to green (removes blocker)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23935"></span>5d7f</td>
+<td class="instruction">ld hl,$5ce4</td>
+<td class="comment-1" rowspan="1">Blocker countdown timer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23938"></span>5d82</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="1">Get blocker timer value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23939"></span>5d83</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1">Check timer for expiry</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23940"></span>5d84</td>
+<td class="instruction">jr z,$5d87</td>
+<td class="comment-1" rowspan="1">Skip ahead if already zero</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23942"></span>5d86</td>
+<td class="instruction">dec (hl)</td>
+<td class="comment-1" rowspan="1">Reduce timer if it hasn't expired</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23943"></span>5d87</td>
+<td class="instruction">call <a href="23855.html">$5d2f</a></td>
+<td class="comment-1" rowspan="1">Check for keypress</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23946"></span>5d8a</td>
+<td class="instruction">jr z,<a href="24002.html#24075">$5e0b</a></td>
+<td class="comment-1" rowspan="1">JP if no key pressed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23948"></span>5d8c</td>
+<td class="instruction">ld b,$c1</td>
+<td class="comment-1" rowspan="1">c1 = 11000001 = BNMs_ HJKLe VCXZ^ (movement keys)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23950"></span>5d8e</td>
+<td class="instruction">call <a href="23858.html">$5d32</a></td>
+<td class="comment-1" rowspan="1">Get keypress</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23953"></span>5d91</td>
+<td class="instruction">jr z,<a href="24002.html">$5dc2</a></td>
+<td class="comment-1" rowspan="1">Jump if player has pressed a movement key, move player (then chasers)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="23955"></span>
+<div class="comments">
+<div class="paragraph">
+Non movement key was pressed (blocker)
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23955"></span>5d93</td>
+<td class="instruction">ld a,($5ce4)</td>
+<td class="comment-1" rowspan="1">A = blocker timer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23958"></span>5d96</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1">set flags</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23959"></span>5d97</td>
+<td class="instruction">jr nz,<a href="24002.html#24075">$5e0b</a></td>
+<td class="comment-1" rowspan="1">Jump if a blocker already exists</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23961"></span>5d99</td>
+<td class="instruction">ld a,($5ce1)</td>
+<td class="comment-1" rowspan="1">A = player direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23964"></span>5d9c</td>
+<td class="instruction">rlca</td>
+<td class="comment-1" rowspan="2">Shift left twice is equivalent to reversing direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23965"></span>5d9d</td>
+<td class="instruction">rlca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23966"></span>5d9e</td>
+<td class="instruction">ld c,a</td>
+<td class="comment-1" rowspan="1">C = reversed player direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23967"></span>5d9f</td>
+<td class="instruction">call <a href="23792.html">$5cf0</a></td>
+<td class="comment-1" rowspan="1">Check position behind player</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23970"></span>5da2</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1">Set flags</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23971"></span>5da3</td>
+<td class="instruction">jr z,<a href="24002.html#24075">$5e0b</a></td>
+<td class="comment-1" rowspan="1">Jump if 0 (not part of the track)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23973"></span>5da5</td>
+<td class="instruction">cp $fa</td>
+<td class="comment-1" rowspan="1">Flashing bright red on white (chaser)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23975"></span>5da7</td>
+<td class="instruction">jr z,<a href="24002.html#24075">$5e0b</a></td>
+<td class="comment-1" rowspan="1">Jump if chaser is directly behind player</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23977"></span>5da9</td>
+<td class="instruction">cp $07</td>
+<td class="comment-1" rowspan="1">white on black (unvisited tile)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23979"></span>5dab</td>
+<td class="instruction">jr nz,$5db6</td>
+<td class="comment-1" rowspan="1">Jump if not white (already collected)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23981"></span>5dad</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1">Save HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23982"></span>5dae</td>
+<td class="instruction">ld hl,($5ce7)</td>
+<td class="comment-1" rowspan="3">Reduce number of squares left by 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23985"></span>5db1</td>
+<td class="instruction">dec hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23986"></span>5db2</td>
+<td class="instruction">ld ($5ce7),hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23989"></span>5db5</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1">Restore HL</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23990"></span>5db6</td>
+<td class="instruction">ld ($5ce5),hl</td>
+<td class="comment-1" rowspan="1">Save blocker position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23993"></span>5db9</td>
+<td class="instruction">ld (hl),$00</td>
+<td class="comment-1" rowspan="1">Draw blocker (set attribute to black on black)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23995"></span>5dbb</td>
+<td class="instruction">ld a,$80</td>
+<td class="comment-1" rowspan="1">A = 0x80</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23997"></span>5dbd</td>
+<td class="instruction">ld ($5ce4),a</td>
+<td class="comment-1" rowspan="1">Set blocker countdown timer to 0x80</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24000"></span>5dc0</td>
+<td class="instruction">jr <a href="24002.html#24075">$5e0b</a></td>
+<td class="comment-1" rowspan="1">Skip player movement checking, move chaser <a href="24002.html#24075">5e0b</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="23899.html">5d5b</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#23911">Map</a></td>
+<td class="next">
+Next: <a href="24002.html">5dc2</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

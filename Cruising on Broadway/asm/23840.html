@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 5d20</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="23834.html">5d1a</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#23840">Map</a></td>
+<td class="next">
+Next: <a href="23855.html">5d2f</a>
+</td>
+</tr>
+</table>
+<div class="description">5d20: Collision detection 1</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="24002.html">5dc2</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23840"></span>5d20</td>
+<td class="instruction">ld bc,($5cd7)</td>
+<td class="comment-1" rowspan="1">Get chaser 1 position</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="23844"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="23834.html">5d1a</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23844"></span>5d24</td>
+<td class="instruction">ld hl,($5cdf)</td>
+<td class="comment-1" rowspan="1">Get player position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23847"></span>5d27</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="23848"></span>5d28</td>
+<td class="instruction">sbc hl,bc</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="23850"></span>5d2a</td>
+<td class="instruction">ret nz</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="23851"></span>5d2b</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="23852"></span>5d2c</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="23853"></span>5d2d</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="23854"></span>5d2e</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="23834.html">5d1a</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#23840">Map</a></td>
+<td class="next">
+Next: <a href="23855.html">5d2f</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

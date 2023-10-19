@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 6290</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25076.html">61f4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25232">Map</a></td>
+<td class="next">
+Next: <a href="25276.html">62bc</a>
+</td>
+</tr>
+</table>
+<div class="description">6290: Scroll messages in from the left</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="25276.html">62bc</a>, <a href="25824.html">64e0</a>, <a href="27188.html#27202">6a42</a> and <a href="28352.html">6ec0</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25232"></span>6290</td>
+<td class="instruction">ld b,$1b</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25234"></span>6292</td>
+<td class="instruction">ld a,($5cd1)</td>
+<td class="comment-1" rowspan="1">Get colour for bottom two rows</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25237"></span>6295</td>
+<td class="instruction">rra</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25238"></span>6296</td>
+<td class="instruction">jr c,$629b</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25240"></span>6298</td>
+<td class="instruction">ccf</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25241"></span>6299</td>
+<td class="instruction">jr $629c</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25243"></span>
+<div class="comments">
+<div class="paragraph">
+Routine at 629b
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25243"></span>629b</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25244"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="25232.html">6290</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25244"></span>629c</td>
+<td class="instruction">rla</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25245"></span>629d</td>
+<td class="instruction">ld c,a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="25246"></span>629e</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25247"></span>629f</td>
+<td class="instruction">push de</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25248"></span>62a0</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25249"></span>62a1</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25252"></span>62a4</td>
+<td class="instruction">ld b,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="25254"></span>62a6</td>
+<td class="instruction">ld a,($5cd2)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25257"></span>62a9</td>
+<td class="instruction">or $f8</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25259"></span>62ab</td>
+<td class="instruction">out ($fe),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25261"></span>62ad</td>
+<td class="instruction">djnz $62a6</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="25263"></span>62af</td>
+<td class="instruction">and $07</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25265"></span>62b1</td>
+<td class="instruction">out ($fe),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25267"></span>62b3</td>
+<td class="instruction">djnz $62af</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25269"></span>62b5</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25270"></span>62b6</td>
+<td class="instruction">pop de</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25271"></span>62b7</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25272"></span>62b8</td>
+<td class="instruction">dec hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25273"></span>62b9</td>
+<td class="instruction">djnz $629e</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25275"></span>62bb</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25076.html">61f4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25232">Map</a></td>
+<td class="next">
+Next: <a href="25276.html">62bc</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

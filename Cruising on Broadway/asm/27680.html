@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 6c20</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27677.html">6c1d</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#27680">Map</a></td>
+<td class="next">
+Next: <a href="27691.html">6c2b</a>
+</td>
+</tr>
+</table>
+<div class="description">6c20: Check for high score</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="27401.html#27426">6b22</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27680"></span>6c20</td>
+<td class="instruction">ld hl,($6c0f)</td>
+<td class="comment-1" rowspan="1">HL = High score 5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27683"></span>6c23</td>
+<td class="instruction">ex de,hl</td>
+<td class="comment-1" rowspan="1">DE = High score 5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27684"></span>6c24</td>
+<td class="instruction">ld hl,($5ceb)</td>
+<td class="comment-1" rowspan="1">HL = Total score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27687"></span>6c27</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1">Clear flags</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27688"></span>6c28</td>
+<td class="instruction">sbc hl,de</td>
+<td class="comment-1" rowspan="1">Subtract high score 5 from total score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27690"></span>6c2a</td>
+<td class="instruction">ret c</td>
+<td class="comment-1" rowspan="1">Return if score is lower (no high score)</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27677.html">6c1d</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#27680">Map</a></td>
+<td class="next">
+Next: <a href="27691.html">6c2b</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

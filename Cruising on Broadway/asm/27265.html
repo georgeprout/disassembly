@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 6a81</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27251.html">6a73</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#27265">Map</a></td>
+<td class="next">
+Next: <a href="27383.html">6af7</a>
+</td>
+</tr>
+</table>
+<div class="description">6a81: Show title screen then menu</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="27401.html#27426">6b22</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27265"></span>6a81</td>
+<td class="instruction">call <a href="27188.html">$6a34</a></td>
+<td class="comment-1" rowspan="1">Show title screen</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27268"></span>
+<div class="comments">
+<div class="paragraph">
+Display Menu
+</div>
+<div class="paragraph">
+This entry point is used by the routines at <a href="27401.html#27426">6b22</a> and <a href="28352.html">6ec0</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27268"></span>6a84</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="1">0.48 second delay</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27271"></span>6a87</td>
+<td class="instruction">ld a,$09</td>
+<td class="comment-1" rowspan="1">blue on blue 00 001 001</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27273"></span>6a89</td>
+<td class="instruction">call <a href="27251.html">$6a73</a></td>
+<td class="comment-1" rowspan="1">Set attributes rows 8-24 to A</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27276"></span>
+<div class="comments">
+<div class="paragraph">
+Draw left side of box
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27276"></span>6a8c</td>
+<td class="instruction">ld de,$0020</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27279"></span>6a8f</td>
+<td class="instruction">ld hl,$4800</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27282"></span>6a92</td>
+<td class="instruction">ld b,$80</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="27284"></span>6a94</td>
+<td class="instruction">set 7,(hl)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27286"></span>6a96</td>
+<td class="instruction">add hl,de</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27287"></span>6a97</td>
+<td class="instruction">djnz $6a94</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27289"></span>
+<div class="comments">
+<div class="paragraph">
+Draw right side of box
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27289"></span>6a99</td>
+<td class="instruction">ld hl,$481f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27292"></span>6a9c</td>
+<td class="instruction">ld b,$80</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="27294"></span>6a9e</td>
+<td class="instruction">set 0,(hl)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27296"></span>6aa0</td>
+<td class="instruction">add hl,de</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27297"></span>6aa1</td>
+<td class="instruction">djnz $6a9e</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27299"></span>
+<div class="comments">
+<div class="paragraph">
+Draw top side of box
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27299"></span>6aa3</td>
+<td class="instruction">ld hl,$4800</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27302"></span>6aa6</td>
+<td class="instruction">ld b,$20</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="27304"></span>6aa8</td>
+<td class="instruction">ld (hl),$ff</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27306"></span>6aaa</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27307"></span>6aab</td>
+<td class="instruction">djnz $6aa8</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27309"></span>
+<div class="comments">
+<div class="paragraph">
+Draw bottom side of box
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27309"></span>6aad</td>
+<td class="instruction">ld hl,$57e0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27312"></span>6ab0</td>
+<td class="instruction">ld b,$20</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="27314"></span>6ab2</td>
+<td class="instruction">ld (hl),$ff</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27316"></span>6ab4</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27317"></span>6ab5</td>
+<td class="instruction">djnz $6ab2</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27319"></span>
+<div class="comments">
+<div class="paragraph">
+Add text
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27319"></span>6ab7</td>
+<td class="instruction">ld hl,$69de</td>
+<td class="comment-1" rowspan="4">"Press -- 'I' for INSTRUCTIONS" <a href="27018.html#27102">69de</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27322"></span>6aba</td>
+<td class="instruction">ld de,$0b01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27325"></span>6abd</td>
+<td class="instruction">ld c,$09</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27327"></span>6abf</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27330"></span>6ac2</td>
+<td class="instruction">ld hl,$69fb</td>
+<td class="comment-1" rowspan="4">"-- 'S' for SCORE TABLE" <a href="27018.html#27131">69fb</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27333"></span>6ac5</td>
+<td class="instruction">ld de,$0f07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27336"></span>6ac8</td>
+<td class="instruction">ld c,$09</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27338"></span>6aca</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27341"></span>6acd</td>
+<td class="instruction">ld hl,$6a11</td>
+<td class="comment-1" rowspan="4">"or 'P' to PLAY" <a href="27018.html#27153">6a11</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27344"></span>6ad0</td>
+<td class="instruction">ld de,$1307</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27347"></span>6ad3</td>
+<td class="instruction">ld c,$09</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27349"></span>6ad5</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27352"></span>
+<div class="comments">
+<div class="paragraph">
+Cycle through colours
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27352"></span>6ad8</td>
+<td class="instruction">ld b,$05</td>
+<td class="comment-1" rowspan="1">Loop 5 times</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27354"></span>6ada</td>
+<td class="instruction">ld a,$09</td>
+<td class="comment-1" rowspan="1">blue on blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27356"></span>6adc</td>
+<td class="instruction">ld de,$8080</td>
+<td class="comment-1" rowspan="1">beep values</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27359"></span>6adf</td>
+<td class="instruction">push de</td>
+<td class="comment-1" rowspan="3">Save registers</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27360"></span>6ae0</td>
+<td class="instruction">push bc</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27361"></span>6ae1</td>
+<td class="instruction">push af</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27362"></span>6ae2</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+<td class="comment-1" rowspan="1">beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27365"></span>6ae5</td>
+<td class="instruction">call <a href="27251.html">$6a73</a></td>
+<td class="comment-1" rowspan="1">Set attributes rows 8-24 to A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27368"></span>6ae8</td>
+<td class="instruction">pop af</td>
+<td class="comment-1" rowspan="3">Restore registers</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27369"></span>6ae9</td>
+<td class="instruction">pop bc</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27370"></span>6aea</td>
+<td class="instruction">pop de</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27371"></span>6aeb</td>
+<td class="instruction">inc a</td>
+<td class="comment-1" rowspan="1">blue on blue / red on blue / magnenta on blue / green on blue / cyan on blue / yellow on blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27372"></span>6aec</td>
+<td class="instruction">djnz $6adf</td>
+<td class="comment-1" rowspan="1">Loop 5 times</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27374"></span>6aee</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+<td class="comment-1" rowspan="1">beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27377"></span>6af1</td>
+<td class="instruction">nop</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27378"></span>6af2</td>
+<td class="instruction">nop</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27379"></span>6af3</td>
+<td class="instruction">call <a href="27251.html">$6a73</a></td>
+<td class="comment-1" rowspan="2">Set attributes rows 8-24 to A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27382"></span>6af6</td>
+<td class="instruction">ret</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27251.html">6a73</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#27265">Map</a></td>
+<td class="next">
+Next: <a href="27383.html">6af7</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

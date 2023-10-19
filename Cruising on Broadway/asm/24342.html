@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 5f16</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24324.html">5f04</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24342">Map</a></td>
+<td class="next">
+Next: <a href="24357.html">5f25</a>
+</td>
+</tr>
+</table>
+<div class="description">5f16: Clear screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="24454.html">5f86</a>, <a href="26215.html">6667</a>, <a href="26548.html">67b4</a>, <a href="27188.html#27202">6a42</a> and <a href="28352.html">6ec0</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24342"></span>5f16</td>
+<td class="instruction">ld bc,$1800</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24345"></span>5f19</td>
+<td class="instruction">ld hl,$4000</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="24348"></span>5f1c</td>
+<td class="instruction">ld (hl),$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24350"></span>5f1e</td>
+<td class="instruction">inc hl</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24351"></span>5f1f</td>
+<td class="instruction">dec bc</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24352"></span>5f20</td>
+<td class="instruction">ld a,b</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24353"></span>5f21</td>
+<td class="instruction">or c</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24354"></span>5f22</td>
+<td class="instruction">jr nz,$5f1c</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24356"></span>5f24</td>
+<td class="instruction">ret</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24324.html">5f04</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24342">Map</a></td>
+<td class="next">
+Next: <a href="24357.html">5f25</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

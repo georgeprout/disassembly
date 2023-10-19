@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 62d4</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25276.html">62bc</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25300">Map</a></td>
+<td class="next">
+Next: <a href="25658.html">643a</a>
+</td>
+</tr>
+</table>
+<div class="description">62d4: Play a frame</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25300"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="25300.html#25535">63bf</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25300"></span>62d4</td>
+<td class="instruction">call <a href="24454.html">$5f86</a></td>
+<td class="comment-1" rowspan="1">Display frame</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25303"></span>62d7</td>
+<td class="instruction">ld b,$10</td>
+<td class="comment-1" rowspan="1">B = 0x10</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25305"></span>62d9</td>
+<td class="instruction">ld de,$0860</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25308"></span>62dc</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+<td class="comment-1" rowspan="1">beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25311"></span>62df</td>
+<td class="instruction">ld de,$3010</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25314"></span>62e2</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+<td class="comment-1" rowspan="1">beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25317"></span>62e5</td>
+<td class="instruction">djnz $62d9</td>
+<td class="comment-1" rowspan="1">Repeat 0x10 times</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25319"></span>62e7</td>
+<td class="instruction">call <a href="23899.html">$5d5b</a></td>
+<td class="comment-1" rowspan="1">Play game, time bonus returned in BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25322"></span>62ea</td>
+<td class="instruction">ld hl,($5ce9)</td>
+<td class="comment-1" rowspan="1">Get frame score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25325"></span>62ed</td>
+<td class="instruction">ld de,($5ce7)</td>
+<td class="comment-1" rowspan="1">Get number of squares remaining</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25329"></span>62f1</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1">reset flags</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25330"></span>62f2</td>
+<td class="instruction">sbc hl,de</td>
+<td class="comment-1" rowspan="1">Subtract number of squares remaining (should be 0!)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25332"></span>62f4</td>
+<td class="instruction">ld ($5ce9),hl</td>
+<td class="comment-1" rowspan="1">Store frame score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25335"></span>62f7</td>
+<td class="instruction">ld de,($5ceb)</td>
+<td class="comment-1" rowspan="1">DE = Get total score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25339"></span>62fb</td>
+<td class="instruction">add hl,de</td>
+<td class="comment-1" rowspan="1">Add total score to frame score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25340"></span>62fc</td>
+<td class="instruction">ld ($5ceb),hl</td>
+<td class="comment-1" rowspan="1">Store total score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25343"></span>62ff</td>
+<td class="instruction">ld a,b</td>
+<td class="comment-1" rowspan="2">Check if time bonus is 0000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25344"></span>6300</td>
+<td class="instruction">or c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25345"></span>6301</td>
+<td class="instruction">jp z,<a href="25824.html">$64e0</a></td>
+<td class="comment-1" rowspan="1">Jump if no time bonus</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25348"></span>
+<div class="comments">
+<div class="paragraph">
+Time Bonus
+</div>
+<div class="paragraph">
+HL holds total score, DE previous score, BC time bonus
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25348"></span>6304</td>
+<td class="instruction">ex de,hl</td>
+<td class="comment-1" rowspan="1">DE is now total score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25349"></span>6305</td>
+<td class="instruction">ld h,b</td>
+<td class="comment-1" rowspan="2">HL now has time bonus</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25350"></span>6306</td>
+<td class="instruction">ld l,c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25351"></span>6307</td>
+<td class="instruction">dec hl</td>
+<td class="comment-1" rowspan="1">take one off for some reason</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25352"></span>6308</td>
+<td class="instruction">ld ($5ce2),hl</td>
+<td class="comment-1" rowspan="1">Store time bonus</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25355"></span>630b</td>
+<td class="instruction">ld a,($5cd6)</td>
+<td class="comment-1" rowspan="1">Second chaser enabled?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25358"></span>630e</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1">set flags</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25359"></span>630f</td>
+<td class="instruction">jr z,$6312</td>
+<td class="comment-1" rowspan="1">only add time bonus once, skip next instruction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25361"></span>6311</td>
+<td class="instruction">add hl,hl</td>
+<td class="comment-1" rowspan="1">Add time bonus</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25362"></span>6312</td>
+<td class="instruction">add hl,de</td>
+<td class="comment-1" rowspan="1">Add time bonus</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25363"></span>6313</td>
+<td class="instruction">ld ($5ceb),hl</td>
+<td class="comment-1" rowspan="1">Save total score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25366"></span>6316</td>
+<td class="instruction">ld b,$30</td>
+<td class="comment-1" rowspan="1">B = 0x30</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25368"></span>6318</td>
+<td class="instruction">call <a href="25044.html">$61d4</a></td>
+<td class="comment-1" rowspan="1">beeps</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25371"></span>631b</td>
+<td class="instruction">ld de,$c0ff</td>
+<td class="comment-1" rowspan="1">de=</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25374"></span>631e</td>
+<td class="instruction">ld a,($5cd2)</td>
+<td class="comment-1" rowspan="1">Get border colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25377"></span>6321</td>
+<td class="instruction">ld h,a</td>
+<td class="comment-1" rowspan="1">Save border colour in H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25378"></span>6322</td>
+<td class="instruction">ld a,$07</td>
+<td class="comment-1" rowspan="1">A = white</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25380"></span>6324</td>
+<td class="instruction">dec a</td>
+<td class="comment-1" rowspan="1">Cycle through colours</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25381"></span>6325</td>
+<td class="instruction">ld ($5cd3),a</td>
+<td class="comment-1" rowspan="1">Save screen colour for rows 1-22</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25384"></span>6328</td>
+<td class="instruction">push af</td>
+<td class="comment-1" rowspan="1">Save for later</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25385"></span>6329</td>
+<td class="instruction">call <a href="23879.html">$5d47</a></td>
+<td class="comment-1" rowspan="1">Set screen colour to A (rows 1-22)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25388"></span>632c</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+<td class="comment-1" rowspan="1">beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25391"></span>632f</td>
+<td class="instruction">pop af</td>
+<td class="comment-1" rowspan="1">restore</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25392"></span>6330</td>
+<td class="instruction">cp h</td>
+<td class="comment-1" rowspan="1">have we cycled through to the correct border colour?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25393"></span>6331</td>
+<td class="instruction">jr nz,$6324</td>
+<td class="comment-1" rowspan="1">Repeat until we have</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25395"></span>6333</td>
+<td class="instruction">rlca</td>
+<td class="comment-1" rowspan="3">x8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25396"></span>6334</td>
+<td class="instruction">rlca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25397"></span>6335</td>
+<td class="instruction">rlca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25398"></span>6336</td>
+<td class="instruction">add a,h</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25399"></span>6337</td>
+<td class="instruction">ld h,a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25400"></span>6338</td>
+<td class="instruction">and $07</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="25402"></span>633a</td>
+<td class="instruction">add a,$08</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25404"></span>633c</td>
+<td class="instruction">ld ($5cd3),a</td>
+<td class="comment-1" rowspan="1">Save screen colour for rows 1-22</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25407"></span>633f</td>
+<td class="instruction">push af</td>
+<td class="comment-1" rowspan="1">Save A for later</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25408"></span>6340</td>
+<td class="instruction">call <a href="23879.html">$5d47</a></td>
+<td class="comment-1" rowspan="1">Set screen colour to A (rows 1-22)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25411"></span>6343</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+<td class="comment-1" rowspan="1">beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25414"></span>6346</td>
+<td class="instruction">pop af</td>
+<td class="comment-1" rowspan="1">Restore A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25415"></span>6347</td>
+<td class="instruction">cp h</td>
+<td class="comment-1" rowspan="1">have we cycled through to the correct border colour?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25416"></span>6348</td>
+<td class="instruction">jr nz,$633a</td>
+<td class="comment-1" rowspan="1">loop around</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25418"></span>634a</td>
+<td class="instruction">ld a,($5cd0)</td>
+<td class="comment-1" rowspan="1">Get frame number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25421"></span>634d</td>
+<td class="instruction">cp $04</td>
+<td class="comment-1" rowspan="1">Frame 4?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25423"></span>634f</td>
+<td class="instruction">jr nz,$6361</td>
+<td class="comment-1" rowspan="1">Skip ahead if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25425"></span>
+<div class="comments">
+<div class="paragraph">
+Frame 4 completed
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25425"></span>6351</td>
+<td class="instruction">ld hl,$61f5</td>
+<td class="comment-1" rowspan="1">"WELL DONE" <a href="25076.html#25077">61f5</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25428"></span>6354</td>
+<td class="instruction">ld de,$0108</td>
+<td class="comment-1" rowspan="1">Row 1, column 8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25431"></span>6357</td>
+<td class="instruction">ld c,$f1</td>
+<td class="comment-1" rowspan="1">Flashing bright yellow on blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25433"></span>6359</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="None"></span>#audi</td>
+<td class="instruction">o4[2,0](whoop)($635c,$635e)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25436"></span>635c</td>
+<td class="instruction">ld b,$10</td>
+<td class="comment-1" rowspan="2">whoop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25438"></span>635e</td>
+<td class="instruction">call <a href="25044.html">$61d4</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25441"></span>
+<div class="comments">
+<div class="paragraph">
+All frames
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25441"></span>6361</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="1">0.48 second delay</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25444"></span>6364</td>
+<td class="instruction">ld hl,$6247</td>
+<td class="comment-1" rowspan="1">Last byte of "For the frame you scored :-" <a href="25076.html#25159">6247</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25447"></span>6367</td>
+<td class="instruction">ld de,$0400</td>
+<td class="comment-1" rowspan="1">Row 4, column 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25450"></span>636a</td>
+<td class="instruction">call <a href="25232.html">$6290</a></td>
+<td class="comment-1" rowspan="1">Scroll text from left</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25453"></span>636d</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="1">0.48 second delay</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25456"></span>6370</td>
+<td class="instruction">ld hl,($5ce9)</td>
+<td class="comment-1" rowspan="1">Get frame score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25459"></span>6373</td>
+<td class="instruction">ld de,$0718</td>
+<td class="comment-1" rowspan="1">Row 7, column 24</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25462"></span>6376</td>
+<td class="instruction">ld c,$71</td>
+<td class="comment-1" rowspan="1">Bright yellow on blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25464"></span>6378</td>
+<td class="instruction">call <a href="24985.html">$6199</a></td>
+<td class="comment-1" rowspan="1">Print frame score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25467"></span>637b</td>
+<td class="instruction">ld b,$30</td>
+<td class="comment-1" rowspan="2">whoop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25469"></span>637d</td>
+<td class="instruction">call <a href="25044.html">$61d4</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25472"></span>6380</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="1">0.48 second delay</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25475"></span>6383</td>
+<td class="instruction">ld hl,$6267</td>
+<td class="comment-1" rowspan="1">Last byte of "Plus a time bonus of" <a href="25076.html#25161">6249</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25478"></span>6386</td>
+<td class="instruction">ld de,$0a00</td>
+<td class="comment-1" rowspan="1">Row 10, column 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25481"></span>6389</td>
+<td class="instruction">call <a href="25232.html">$6290</a></td>
+<td class="comment-1" rowspan="1">Scroll text from left</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25484"></span>638c</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="1">0.48 second delay</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25487"></span>638f</td>
+<td class="instruction">ld hl,($5ce2)</td>
+<td class="comment-1" rowspan="1">Get time bonus</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25490"></span>6392</td>
+<td class="instruction">ld a,h</td>
+<td class="comment-1" rowspan="2">is time bonus zero?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25491"></span>6393</td>
+<td class="instruction">or l</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25492"></span>6394</td>
+<td class="instruction">jr nz,$63bf</td>
+<td class="comment-1" rowspan="1">Jump if a bonus has been scored</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25494"></span>
+<div class="comments">
+<div class="paragraph">
+No time bonus
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25494"></span>6396</td>
+<td class="instruction">ld de,$0d18</td>
+<td class="comment-1" rowspan="1">Row 13, column 24</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25497"></span>6399</td>
+<td class="instruction">ld a,($5cd1)</td>
+<td class="comment-1" rowspan="1">Get bottom rows colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25500"></span>639c</td>
+<td class="instruction">ld c,a</td>
+<td class="comment-1" rowspan="1">Use this colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25501"></span>639d</td>
+<td class="instruction">ld hl,$6268</td>
+<td class="comment-1" rowspan="1">"Zero" <a href="25076.html#25192">6268</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25504"></span>63a0</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25507"></span>63a3</td>
+<td class="instruction">ld de,$ffff</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25510"></span>63a6</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+<td class="comment-1" rowspan="1">beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25513"></span>63a9</td>
+<td class="instruction">ld de,$0e0c</td>
+<td class="comment-1" rowspan="1">Row 14, column 12</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25516"></span>63ac</td>
+<td class="instruction">ld a,($5cd1)</td>
+<td class="comment-1" rowspan="1">Get bottom rows colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25519"></span>63af</td>
+<td class="instruction">ld c,a</td>
+<td class="comment-1" rowspan="1">Use this colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25520"></span>63b0</td>
+<td class="instruction">ld hl,$626c</td>
+<td class="comment-1" rowspan="1">"Sorry too slow" <a href="25076.html#25196">626c</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25523"></span>63b3</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25526"></span>63b6</td>
+<td class="instruction">ld b,$02</td>
+<td class="comment-1" rowspan="1">B=2</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25528"></span>63b8</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="1">0.48 second delay</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25531"></span>63bb</td>
+<td class="instruction">djnz $63b8</td>
+<td class="comment-1" rowspan="1">Repeat twice</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25533"></span>63bd</td>
+<td class="instruction">jr $63ea</td>
+<td class="comment-1" rowspan="1">No bonus, so jump ahead</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25535"></span>
+<div class="comments">
+<div class="paragraph">
+Display time bonus
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25535"></span>63bf</td>
+<td class="instruction">ld de,$0d18</td>
+<td class="comment-1" rowspan="1">Row 13, column 24</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25538"></span>63c2</td>
+<td class="instruction">ld c,$71</td>
+<td class="comment-1" rowspan="1">Bright yellow on blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25540"></span>63c4</td>
+<td class="instruction">call <a href="24985.html">$6199</a></td>
+<td class="comment-1" rowspan="1">Print number in HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25543"></span>63c7</td>
+<td class="instruction">ld b,$38</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25545"></span>63c9</td>
+<td class="instruction">call <a href="25044.html">$61d4</a></td>
+<td class="comment-1" rowspan="1">beeps</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25548"></span>63cc</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="1">Pause</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25551"></span>63cf</td>
+<td class="instruction">ld a,($5cd6)</td>
+<td class="comment-1" rowspan="1">Is the second chaser enabled?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25554"></span>63d2</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1">Set flags (ld doesn't)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25555"></span>63d3</td>
+<td class="instruction">jr z,$63ed</td>
+<td class="comment-1" rowspan="1">Skip ahead if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25557"></span>
+<div class="comments">
+<div class="paragraph">
+Bonus if two chasers
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25557"></span>63d5</td>
+<td class="instruction">ld de,$0e18</td>
+<td class="comment-1" rowspan="1">Row 14, column 24</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25560"></span>63d8</td>
+<td class="instruction">ld c,$f1</td>
+<td class="comment-1" rowspan="1">Flashing bright yellow on blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25562"></span>63da</td>
+<td class="instruction">ld hl,$6280</td>
+<td class="comment-1" rowspan="1">"* TWO" <a href="25076.html#25216">6280</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25565"></span>63dd</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25568"></span>63e0</td>
+<td class="instruction">ld b,$03</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25570"></span>63e2</td>
+<td class="instruction">ld de,$10ff</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="25573"></span>63e5</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+<td class="comment-1" rowspan="1">beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25576"></span>63e8</td>
+<td class="instruction">djnz $63e5</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25578"></span>
+<div class="comments">
+<div class="paragraph">
+Tine bonus scored, only one chaser
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25578"></span>63ea</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="1">0.48 second delay</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25581"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is if no time bonus was awarded (already delayed)
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25581"></span>63ed</td>
+<td class="instruction">ld de,$120d</td>
+<td class="comment-1" rowspan="1">Row 18, column 13</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25584"></span>63f0</td>
+<td class="instruction">ld hl,$6286</td>
+<td class="comment-1" rowspan="1">"Total:--" <a href="25076.html#25222">6286</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25587"></span>63f3</td>
+<td class="instruction">ld a,($5cd1)</td>
+<td class="comment-1" rowspan="1">Get colour for bottom of screen</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25590"></span>63f6</td>
+<td class="instruction">ld c,a</td>
+<td class="comment-1" rowspan="1">Set C to colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25591"></span>63f7</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25594"></span>63fa</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="1">0.48 second delay</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25597"></span>63fd</td>
+<td class="instruction">ld hl,($5ceb)</td>
+<td class="comment-1" rowspan="1">Get total score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25600"></span>6400</td>
+<td class="instruction">ld de,$1218</td>
+<td class="comment-1" rowspan="1">Row 18, column 24</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25603"></span>6403</td>
+<td class="instruction">ld c,$71</td>
+<td class="comment-1" rowspan="1">Bright yellow on blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25605"></span>6405</td>
+<td class="instruction">call <a href="24985.html">$6199</a></td>
+<td class="comment-1" rowspan="1">Print score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25608"></span>6408</td>
+<td class="instruction">ld b,$80</td>
+<td class="comment-1" rowspan="1">b = 0x80</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25610"></span>640a</td>
+<td class="instruction">call <a href="25044.html">$61d4</a></td>
+<td class="comment-1" rowspan="1">beeps</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25613"></span>640d</td>
+<td class="instruction">ld a,($5cd0)</td>
+<td class="comment-1" rowspan="1">Get frame number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25616"></span>6410</td>
+<td class="instruction">cp $04</td>
+<td class="comment-1" rowspan="1">Frame 4 (last frame)?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25618"></span>6412</td>
+<td class="instruction">jr z,<a href="25658.html">$643a</a></td>
+<td class="comment-1" rowspan="1">Jump if yes</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25620"></span>6414</td>
+<td class="instruction">ld de,$10ff</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25623"></span>6417</td>
+<td class="instruction">ld b,$04</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="25625"></span>6419</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="1">0.48 second delay</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25628"></span>641c</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+<td class="comment-1" rowspan="1">Beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25631"></span>641f</td>
+<td class="instruction">djnz $6419</td>
+<td class="comment-1" rowspan="1">Repeat 4 times</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25633"></span>6421</td>
+<td class="instruction">ld a,($5cd1)</td>
+<td class="comment-1" rowspan="1">Get bottom of screen colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25636"></span>6424</td>
+<td class="instruction">and $f8</td>
+<td class="comment-1" rowspan="1">11111000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25638"></span>6426</td>
+<td class="instruction">ld b,a</td>
+<td class="comment-1" rowspan="1">Copy to b</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25639"></span>6427</td>
+<td class="instruction">ld a,($5cd2)</td>
+<td class="comment-1" rowspan="1">Get border colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25642"></span>642a</td>
+<td class="instruction">add a,b</td>
+<td class="comment-1" rowspan="1">add together</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25643"></span>642b</td>
+<td class="instruction">ld ($5cd3),a</td>
+<td class="comment-1" rowspan="1">Save screen colour for rows 1-22</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25646"></span>642e</td>
+<td class="instruction">ld ($5cd1),a</td>
+<td class="comment-1" rowspan="1">Save bottom of screen colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25649"></span>6431</td>
+<td class="instruction">call <a href="23879.html">$5d47</a></td>
+<td class="comment-1" rowspan="1">Set colour for rows 1-22</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25652"></span>6434</td>
+<td class="instruction">call <a href="24441.html">$5f79</a></td>
+<td class="comment-1" rowspan="2">Set colour for rowws 23 &amp; 24</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25655"></span>6437</td>
+<td class="instruction">jp $62d4</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25276.html">62bc</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25300">Map</a></td>
+<td class="next">
+Next: <a href="25658.html">643a</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

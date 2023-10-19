@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 6b09</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27383.html">6af7</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#27401">Map</a></td>
+<td class="next">
+Next: <a href="27485.html">6b5d</a>
+</td>
+</tr>
+</table>
+<div class="description">6b09: Show demo frame</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="27383.html">6af7</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27401"></span>6b09</td>
+<td class="instruction">ld a,($6066)</td>
+<td class="comment-1" rowspan="1">Get lsb of frame pointer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27404"></span>6b0c</td>
+<td class="instruction">cp $8a</td>
+<td class="comment-1" rowspan="1">Beyond frame 4?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27406"></span>6b0e</td>
+<td class="instruction">jr nz,$6b1b</td>
+<td class="comment-1" rowspan="1">Jump if frame 1-4</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27408"></span>6b10</td>
+<td class="instruction">ld a,$00</td>
+<td class="comment-1" rowspan="1">Otherwise reset back to frame 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27410"></span>6b12</td>
+<td class="instruction">ld ($5cd0),a</td>
+<td class="comment-1" rowspan="1">Set frame number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27413"></span>6b15</td>
+<td class="instruction">ld hl,$6068</td>
+<td class="comment-1" rowspan="1">Frame 1 data address</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27416"></span>6b18</td>
+<td class="instruction">ld ($6066),hl</td>
+<td class="comment-1" rowspan="1">Save in frame pointer address</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27419"></span>6b1b</td>
+<td class="instruction">call <a href="24454.html">$5f86</a></td>
+<td class="comment-1" rowspan="1">Draw next frame</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27422"></span>6b1e</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="1">0.48 second delay</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27425"></span>6b21</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1">Restore HL</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27426"></span>
+<div class="comments">
+<div class="paragraph">
+Display menu
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27426"></span>6b22</td>
+<td class="instruction">nop</td>
+<td class="comment-1" rowspan="4">Unused</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27427"></span>6b23</td>
+<td class="instruction">nop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27428"></span>6b24</td>
+<td class="instruction">nop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27429"></span>6b25</td>
+<td class="instruction">nop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27430"></span>6b26</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="1">0.48 second delay</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27433"></span>6b29</td>
+<td class="instruction">ld a,$01</td>
+<td class="comment-1" rowspan="1">Blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27435"></span>6b2b</td>
+<td class="instruction">ld ($5cd2),a</td>
+<td class="comment-1" rowspan="1">Save border colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27438"></span>6b2e</td>
+<td class="instruction">call <a href="27265.html">$6a81</a></td>
+<td class="comment-1" rowspan="1">Display title screen and menu</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27441"></span>
+<div class="comments">
+<div class="paragraph">
+Keyboard loop, wait for I, S or P
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27441"></span>6b31</td>
+<td class="instruction">call <a href="27383.html">$6af7</a></td>
+<td class="comment-1" rowspan="1">Wait for 16 seconds unless a key is pressed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27444"></span>6b34</td>
+<td class="instruction">ld bc,$dffe</td>
+<td class="comment-1" rowspan="2">Check keyboard df YUIOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27447"></span>6b37</td>
+<td class="instruction">in a,(c)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27449"></span>6b39</td>
+<td class="instruction">bit 0,a</td>
+<td class="comment-1" rowspan="1">Was P pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27451"></span>6b3b</td>
+<td class="instruction">jr nz,$6b48</td>
+<td class="comment-1" rowspan="1">Jump and check for I</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27453"></span>
+<div class="comments">
+<div class="paragraph">
+P was pressed
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27453"></span>6b3d</td>
+<td class="instruction">call <a href="25276.html">$62bc</a></td>
+<td class="comment-1" rowspan="1">Initialise new game</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27456"></span>6b40</td>
+<td class="instruction">call <a href="27680.html">$6c20</a></td>
+<td class="comment-1" rowspan="1">Check for new high score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27459"></span>6b43</td>
+<td class="instruction">call <a href="27265.html#27268">$6a84</a></td>
+<td class="comment-1" rowspan="1">Show menu</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27462"></span>6b46</td>
+<td class="instruction">jr $6b31</td>
+<td class="comment-1" rowspan="1">back to checking for keypress</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27464"></span>
+<div class="comments">
+<div class="paragraph">
+Check for I
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27464"></span>6b48</td>
+<td class="instruction">bit 2,a</td>
+<td class="comment-1" rowspan="1">Was I pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27466"></span>6b4a</td>
+<td class="instruction">jr nz,$6b51</td>
+<td class="comment-1" rowspan="1">Jump if not and check for S</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27468"></span>6b4c</td>
+<td class="instruction">call <a href="27000.html">$6978</a></td>
+<td class="comment-1" rowspan="1">Show instructions</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27471"></span>6b4f</td>
+<td class="instruction">jr $6b22</td>
+<td class="comment-1" rowspan="1">Loop back to menu</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27473"></span>
+<div class="comments">
+<div class="paragraph">
+Check for S
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27473"></span>6b51</td>
+<td class="instruction">ld bc,$fdfe</td>
+<td class="comment-1" rowspan="2">fdfe = Keyboard GFDSA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27476"></span>6b54</td>
+<td class="instruction">in a,(c)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27478"></span>6b56</td>
+<td class="instruction">bit 1,a</td>
+<td class="comment-1" rowspan="1">Was S pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27480"></span>6b58</td>
+<td class="instruction">jr nz,$6b31</td>
+<td class="comment-1" rowspan="1">Repeat keyboard checking loop</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27482"></span>
+<div class="comments">
+<div class="paragraph">
+S was pressed
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27482"></span>6b5a</td>
+<td class="instruction">jp <a href="27881.html">$6ce9</a></td>
+<td class="comment-1" rowspan="1">Show score table</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27383.html">6af7</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#27401">Map</a></td>
+<td class="next">
+Next: <a href="27485.html">6b5d</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

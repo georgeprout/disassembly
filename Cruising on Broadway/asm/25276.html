@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 62bc</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25232.html">6290</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25276">Map</a></td>
+<td class="next">
+Next: <a href="25300.html">62d4</a>
+</td>
+</tr>
+</table>
+<div class="description">62bc: Initialise Game</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="27401.html#27426">6b22</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25276"></span>62bc</td>
+<td class="instruction">ld a,$28</td>
+<td class="comment-1" rowspan="2">Set game speed to 0x28</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25278"></span>62be</td>
+<td class="instruction">ld ($5cd5),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25281"></span>62c1</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1">A = 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25282"></span>62c2</td>
+<td class="instruction">ld ($5cd6),a</td>
+<td class="comment-1" rowspan="1">Disable second chaser</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25285"></span>62c5</td>
+<td class="instruction">ld ($5cd0),a</td>
+<td class="comment-1" rowspan="1">Save frame number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25288"></span>62c8</td>
+<td class="instruction">ld hl,$0000</td>
+<td class="comment-1" rowspan="1">Reset score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25291"></span>62cb</td>
+<td class="instruction">ld ($5ceb),hl</td>
+<td class="comment-1" rowspan="1">Total score</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25294"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="25658.html#25692">645c</a>.
+</div>
+<div class="paragraph">
+Set frame pointer to first frame
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25294"></span>62ce</td>
+<td class="instruction">ld hl,$6068</td>
+<td class="comment-1" rowspan="1">Pointer to frame 1 data</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25297"></span>62d1</td>
+<td class="instruction">ld ($6066),hl</td>
+<td class="comment-1" rowspan="1">Save pointer to frame pointer variable</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25232.html">6290</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25276">Map</a></td>
+<td class="next">
+Next: <a href="25300.html">62d4</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

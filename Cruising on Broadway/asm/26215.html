@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 6667</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26196.html">6654</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26215">Map</a></td>
+<td class="next">
+Next: <a href="26295.html">66b7</a>
+</td>
+</tr>
+</table>
+<div class="description">6667: Draw box for instructions/high score table</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="26295.html">66b7</a> and <a href="27881.html">6ce9</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26215"></span>6667</td>
+<td class="instruction">call <a href="26196.html">$6654</a></td>
+<td class="comment-1" rowspan="1">Set screen to black</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26218"></span>666a</td>
+<td class="instruction">call <a href="24342.html">$5f16</a></td>
+<td class="comment-1" rowspan="1">Clear screen</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26221"></span>
+<div class="comments">
+<div class="paragraph">
+Draw left side of box
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26221"></span>666d</td>
+<td class="instruction">ld de,$0020</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26224"></span>6670</td>
+<td class="instruction">ld hl,$4000</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26227"></span>6673</td>
+<td class="instruction">ld b,$c0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="26229"></span>6675</td>
+<td class="instruction">set 7,(hl)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26231"></span>6677</td>
+<td class="instruction">add hl,de</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26232"></span>6678</td>
+<td class="instruction">djnz $6675</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26234"></span>
+<div class="comments">
+<div class="paragraph">
+Draw right hand side of box
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26234"></span>667a</td>
+<td class="instruction">ld hl,$401f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26237"></span>667d</td>
+<td class="instruction">ld b,$c0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="26239"></span>667f</td>
+<td class="instruction">set 0,(hl)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26241"></span>6681</td>
+<td class="instruction">add hl,de</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26242"></span>6682</td>
+<td class="instruction">djnz $667f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26244"></span>
+<div class="comments">
+<div class="paragraph">
+Draw top line of box
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26244"></span>6684</td>
+<td class="instruction">ld hl,$4000</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26247"></span>6687</td>
+<td class="instruction">ld b,$20</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="26249"></span>6689</td>
+<td class="instruction">ld (hl),$ff</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26251"></span>668b</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26252"></span>668c</td>
+<td class="instruction">djnz $6689</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26254"></span>
+<div class="comments">
+<div class="paragraph">
+Draw bottom line of box
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26254"></span>668e</td>
+<td class="instruction">ld hl,$57e0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26257"></span>6691</td>
+<td class="instruction">ld b,$20</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="26259"></span>6693</td>
+<td class="instruction">ld (hl),$ff</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26261"></span>6695</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26262"></span>6696</td>
+<td class="instruction">djnz $6693</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26264"></span>
+<div class="comments">
+<div class="paragraph">
+Flash box with short beeps (easily missed effect)
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26264"></span>6698</td>
+<td class="instruction">ld b,$06</td>
+<td class="comment-1" rowspan="1">Loop 6 times</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26266"></span>669a</td>
+<td class="instruction">ld a,$01</td>
+<td class="comment-1" rowspan="1">blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26268"></span>669c</td>
+<td class="instruction">ld de,$02ff</td>
+<td class="comment-1" rowspan="4">pitch/duration for beep</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26271"></span>669f</td>
+<td class="instruction">push de</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26272"></span>66a0</td>
+<td class="instruction">push bc</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26273"></span>66a1</td>
+<td class="instruction">push af</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26274"></span>66a2</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+<td class="comment-1" rowspan="1">beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26277"></span>66a5</td>
+<td class="instruction">call <a href="26196.html#26202">$665a</a></td>
+<td class="comment-1" rowspan="4">Set screen colour to A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26280"></span>66a8</td>
+<td class="instruction">pop af</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26281"></span>66a9</td>
+<td class="instruction">pop bc</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26282"></span>66aa</td>
+<td class="instruction">pop de</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26283"></span>66ab</td>
+<td class="instruction">inc a</td>
+<td class="comment-1" rowspan="1">inc colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26284"></span>66ac</td>
+<td class="instruction">djnz $669f</td>
+<td class="comment-1" rowspan="1">repeat (6 times)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26286"></span>66ae</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+<td class="comment-1" rowspan="1">beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26289"></span>66b1</td>
+<td class="instruction">ld a,$47</td>
+<td class="comment-1" rowspan="1">Bright white on black</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26291"></span>66b3</td>
+<td class="instruction">call <a href="26196.html#26202">$665a</a></td>
+<td class="comment-1" rowspan="2">Set screen to bright white on black</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26294"></span>66b6</td>
+<td class="instruction">ret</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26196.html">6654</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26215">Map</a></td>
+<td class="next">
+Next: <a href="26295.html">66b7</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

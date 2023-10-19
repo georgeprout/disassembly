@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 6dbe</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27881.html">6ce9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28094">Map</a></td>
+<td class="next">
+Next: <a href="28198.html">6e26</a>
+</td>
+</tr>
+</table>
+<div class="description">6dbe: Send high score table to printer</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28094"></span>6dbe</td>
+<td class="instruction">ld de,$0000</td>
+<td class="comment-1" rowspan="1">Clear DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28097"></span>6dc1</td>
+<td class="instruction">di</td>
+<td class="comment-1" rowspan="1">No interrupts during printing</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28098"></span>6dc2</td>
+<td class="instruction">ld hl,$4000</td>
+<td class="comment-1" rowspan="1">Start of screen data</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28101"></span>6dc5</td>
+<td class="instruction">ld c,$03</td>
+<td class="comment-1" rowspan="1">Screen consists of 3 sections</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28103"></span>6dc7</td>
+<td class="instruction">ld b,$08</td>
+<td class="comment-1" rowspan="1">Each section consists of 8 character rows</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28105"></span>6dc9</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1">Save these counters</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28106"></span>6dca</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1">Save screen position address</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28107"></span>6dcb</td>
+<td class="instruction">ld c,$08</td>
+<td class="comment-1" rowspan="1">Counter C = 8 pixel rows per character row</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28109"></span>6dcd</td>
+<td class="instruction">ld b,$02</td>
+<td class="comment-1" rowspan="1">Counter B = 2</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28111"></span>6dcf</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1">Save these counters</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28112"></span>6dd0</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1">Save screen position address</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28113"></span>6dd1</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1">Printer command: motor fast, stylus off</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28114"></span>6dd2</td>
+<td class="instruction">out ($fb),a</td>
+<td class="comment-1" rowspan="1">Send command to printer</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28116"></span>6dd4</td>
+<td class="instruction">in a,($fb)</td>
+<td class="comment-1" rowspan="1">Get printer status</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28118"></span>6dd6</td>
+<td class="instruction">rlca</td>
+<td class="comment-1" rowspan="1">Shift bit 7 into C flag</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28119"></span>6dd7</td>
+<td class="instruction">jr nc,$6dd4</td>
+<td class="comment-1" rowspan="1">Loop until stylus touches paper</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28121"></span>6dd9</td>
+<td class="instruction">ld c,$20</td>
+<td class="comment-1" rowspan="1">C = 0x20 bytes in width of screen</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28123"></span>6ddb</td>
+<td class="instruction">ld e,(hl)</td>
+<td class="comment-1" rowspan="1">E = screen contents</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28124"></span>6ddc</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">point to next byte on screen</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28125"></span>6ddd</td>
+<td class="instruction">ld b,$08</td>
+<td class="comment-1" rowspan="1">B = 8 pixels per byte</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28127"></span>
+<div class="comments">
+<div class="paragraph">
+Cycle through each bit in E, it gets put into bit 7 of D
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28127"></span>6ddf</td>
+<td class="instruction">rl d</td>
+<td class="comment-1" rowspan="1">rotate D left through carry</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28129"></span>6de1</td>
+<td class="instruction">rl e</td>
+<td class="comment-1" rowspan="1">rotate E left through carry</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28131"></span>6de3</td>
+<td class="instruction">rr d</td>
+<td class="comment-1" rowspan="1">rotate D right through carry (D picks up bit 7 of screen data)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28133"></span>6de5</td>
+<td class="instruction">in a,($fb)</td>
+<td class="comment-1" rowspan="1">Get printer status</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28135"></span>6de7</td>
+<td class="instruction">rra</td>
+<td class="comment-1" rowspan="1">Shift bit 0 into carry flag</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28136"></span>6de8</td>
+<td class="instruction">jr nc,$6de5</td>
+<td class="comment-1" rowspan="1">Loop until encoder disk shows stylus is in position(?)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28138"></span>6dea</td>
+<td class="instruction">ld a,d</td>
+<td class="comment-1" rowspan="1">data to print (just bit 7)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28139"></span>6deb</td>
+<td class="instruction">out ($fb),a</td>
+<td class="comment-1" rowspan="1">Send to printer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28141"></span>6ded</td>
+<td class="instruction">djnz $6ddf</td>
+<td class="comment-1" rowspan="1">Repeat for each bit of data (first byte)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28143"></span>6def</td>
+<td class="instruction">dec c</td>
+<td class="comment-1" rowspan="1">C is screen width counter, reduce by 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28144"></span>6df0</td>
+<td class="instruction">jr nz,$6ddb</td>
+<td class="comment-1" rowspan="1">Get next screen byte and repeat for complete pixel row</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28146"></span>6df2</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1">Restore HL (screen address)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28147"></span>6df3</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1">Restore BC (Screen section 8 lines/8 lines/8 lines)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28148"></span>6df4</td>
+<td class="instruction">djnz $6dcf</td>
+<td class="comment-1" rowspan="1">Repeat 8 times ? Losing track here</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28150"></span>6df6</td>
+<td class="instruction">ld a,$01</td>
+<td class="comment-1" rowspan="3">+0x0100 = next pixel row</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28152"></span>6df8</td>
+<td class="instruction">add a,h</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28153"></span>6df9</td>
+<td class="instruction">ld h,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28154"></span>6dfa</td>
+<td class="instruction">dec c</td>
+<td class="comment-1" rowspan="1">dec C counter ()</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28155"></span>6dfb</td>
+<td class="instruction">jr nz,$6dcd</td>
+<td class="comment-1" rowspan="3">Repeat</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28157"></span>6dfd</td>
+<td class="instruction">pop hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28158"></span>6dfe</td>
+<td class="instruction">pop bc</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28159"></span>6dff</td>
+<td class="instruction">ld a,$20</td>
+<td class="comment-1" rowspan="3">+0x20 = next character row</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28161"></span>6e01</td>
+<td class="instruction">add a,l</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28162"></span>6e02</td>
+<td class="instruction">ld l,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28163"></span>6e03</td>
+<td class="instruction">djnz $6dc9</td>
+<td class="comment-1" rowspan="1">Repeat</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28165"></span>6e05</td>
+<td class="instruction">ld a,$08</td>
+<td class="comment-1" rowspan="4">+0x0800 = next third of screen memory</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28167"></span>6e07</td>
+<td class="instruction">add a,h</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28168"></span>6e08</td>
+<td class="instruction">ld h,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28169"></span>6e09</td>
+<td class="instruction">dec c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28170"></span>6e0a</td>
+<td class="instruction">jr nz,$6dc7</td>
+<td class="comment-1" rowspan="1">Repeat 3 times (blocks start at 4000/4800/5000)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28172"></span>6e0c</td>
+<td class="instruction">ld a,$04</td>
+<td class="comment-1" rowspan="1">Prnter STOP command</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28174"></span>6e0e</td>
+<td class="instruction">out ($fb),a</td>
+<td class="comment-1" rowspan="1">Send command to printer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28176"></span>6e10</td>
+<td class="instruction">ei</td>
+<td class="comment-1" rowspan="2">Enable interrupts</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28177"></span>6e11</td>
+<td class="instruction">nop</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28178"></span>
+<div class="comments">
+<div class="paragraph">
+Entry point if no printer is connected <a href="27680.html">6c20</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28178"></span>6e12</td>
+<td class="instruction">ld c,$05</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28180"></span>6e14</td>
+<td class="instruction">ld hl,$6647</td>
+<td class="comment-1" rowspan="1">"PRESS ANY KEY" <a href="25999.html#26183">6647</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28183"></span>6e17</td>
+<td class="instruction">ld de,$1609</td>
+<td class="comment-1" rowspan="1">Row 22, column 9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28186"></span>6e1a</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28189"></span>6e1d</td>
+<td class="instruction">call <a href="23855.html">$5d2f</a></td>
+<td class="comment-1" rowspan="1">Get keypress</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28192"></span>6e20</td>
+<td class="instruction">jr z,$6e1d</td>
+<td class="comment-1" rowspan="1">Loop until a key is pressed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28194"></span>6e22</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1">Restore HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28195"></span>6e23</td>
+<td class="instruction">jp <a href="27401.html#27426">$6b22</a></td>
+<td class="comment-1" rowspan="1">Display menu</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27881.html">6ce9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28094">Map</a></td>
+<td class="next">
+Next: <a href="28198.html">6e26</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

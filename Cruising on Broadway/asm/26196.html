@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 6654</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25999.html">658f</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26196">Map</a></td>
+<td class="next">
+Next: <a href="26215.html">6667</a>
+</td>
+</tr>
+</table>
+<div class="description">6654: Set screen to black</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Set border to A
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26196"></span>6654</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1">A=0 black</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26197"></span>6655</td>
+<td class="instruction">ld ($5cd2),a</td>
+<td class="comment-1" rowspan="1">Save border colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26200"></span>6658</td>
+<td class="instruction">out ($fe),a</td>
+<td class="comment-1" rowspan="1">Set border colour</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26202"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="26215.html">6667</a>, <a href="27188.html">6a34</a> and <a href="28352.html">6ec0</a>.
+</div>
+<div class="paragraph">
+Set screen to colour A
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26202"></span>665a</td>
+<td class="instruction">ld ($5cd1),a</td>
+<td class="comment-1" rowspan="1">Save colour for bottom two rows</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26205"></span>665d</td>
+<td class="instruction">ld ($5cd3),a</td>
+<td class="comment-1" rowspan="1">Save colour for rows 1-22</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26208"></span>6660</td>
+<td class="instruction">call <a href="24441.html">$5f79</a></td>
+<td class="comment-1" rowspan="1">Set colour for bottom two rows</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26211"></span>6663</td>
+<td class="instruction">call <a href="23879.html">$5d47</a></td>
+<td class="comment-1" rowspan="2">Set colour for rows 1-22</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26214"></span>6666</td>
+<td class="instruction">ret</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25999.html">658f</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26196">Map</a></td>
+<td class="next">
+Next: <a href="26215.html">6667</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

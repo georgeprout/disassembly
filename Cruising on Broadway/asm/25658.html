@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 643a</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25300.html">62d4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25658">Map</a></td>
+<td class="next">
+Next: <a href="25764.html">64a4</a>
+</td>
+</tr>
+</table>
+<div class="description">643a: Make game harder</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Alternate either enabling a second chaser or by speeding up the game
+</div>
+<div class="paragraph">
+Used by the routine at <a href="25300.html#25535">63bf</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25658"></span>643a</td>
+<td class="instruction">ld a,($5cd6)</td>
+<td class="comment-1" rowspan="1">Is the second chaser enabled?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25661"></span>643d</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1">set flags</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25662"></span>643e</td>
+<td class="instruction">jr nz,$6446</td>
+<td class="comment-1" rowspan="1">Jump if there are two chasers</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25664"></span>
+<div class="comments">
+<div class="paragraph">
+Secnond chaser
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25664"></span>6440</td>
+<td class="instruction">inc a</td>
+<td class="comment-1" rowspan="2">Enable second chaser</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25665"></span>6441</td>
+<td class="instruction">ld ($5cd6),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25668"></span>6444</td>
+<td class="instruction">jr $6456</td>
+<td class="comment-1" rowspan="1">Skip ahead</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25670"></span>
+<div class="comments">
+<div class="paragraph">
+Speed game up
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25670"></span>6446</td>
+<td class="instruction">dec a</td>
+<td class="comment-1" rowspan="2">Disable second chaser</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25671"></span>6447</td>
+<td class="instruction">ld ($5cd6),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25674"></span>644a</td>
+<td class="instruction">ld a,($5cd5)</td>
+<td class="comment-1" rowspan="1">Get game speed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25677"></span>644d</td>
+<td class="instruction">sub $08</td>
+<td class="comment-1" rowspan="1">Reduce game speed (0x28-&gt;0x20-&gt;0x18-&gt;0x10)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25679"></span>644f</td>
+<td class="instruction">cp $10</td>
+<td class="comment-1" rowspan="2">But not below 0x10</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25681"></span>6451</td>
+<td class="instruction">jr c,$6456</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25683"></span>6453</td>
+<td class="instruction">ld ($5cd5),a</td>
+<td class="comment-1" rowspan="1">Set game speed</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25686"></span>
+<div class="comments">
+<div class="paragraph">
+Reset frame to begining
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25686"></span>6456</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1">A = 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25687"></span>6457</td>
+<td class="instruction">ld ($5cd0),a</td>
+<td class="comment-1" rowspan="1">Set frame number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25690"></span>645a</td>
+<td class="instruction">ld c,d</td>
+<td class="comment-1" rowspan="1">eh?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25691"></span>645b</td>
+<td class="instruction">ld c,(hl)</td>
+<td class="comment-1" rowspan="1">HL?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25692"></span>645c</td>
+<td class="instruction">ld de,$1500</td>
+<td class="comment-1" rowspan="1">starting at row 21, column 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25695"></span>645f</td>
+<td class="instruction">ld bc,$1636</td>
+<td class="comment-1" rowspan="1">22 rows, white on red</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25698"></span>6462</td>
+<td class="instruction">push de</td>
+<td class="comment-1" rowspan="2">Save for later</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25699"></span>6463</td>
+<td class="instruction">push bc</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25700"></span>6464</td>
+<td class="instruction">ld hl,$64ae</td>
+<td class="comment-1" rowspan="1">(blank line)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25703"></span>6467</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message (clear line)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25706"></span>646a</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="2">Restore values</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25707"></span>646b</td>
+<td class="instruction">pop de</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25708"></span>646c</td>
+<td class="instruction">dec d</td>
+<td class="comment-1" rowspan="1">Move to row above</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25709"></span>646d</td>
+<td class="instruction">djnz $6462</td>
+<td class="comment-1" rowspan="1">Repeat until screen cleared</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25711"></span>646f</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="1">0.48 second delay</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25714"></span>6472</td>
+<td class="instruction">ld hl,$6205</td>
+<td class="comment-1" rowspan="1">"BUT" <a href="25076.html#25093">6205</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25717"></span>6475</td>
+<td class="instruction">ld ix,$64a4</td>
+<td class="comment-1" rowspan="1">Positions for "BUT" "NOW" etc. <a href="25764.html">64a4</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25721"></span>6479</td>
+<td class="instruction">ld bc,$0532</td>
+<td class="comment-1" rowspan="1">Repeat 5 times, colour = 00 110 010?</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25724"></span>647c</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1">Save for later</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25725"></span>647d</td>
+<td class="instruction">ld de,$ff80</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25728"></span>6480</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+<td class="comment-1" rowspan="1">beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25731"></span>6483</td>
+<td class="instruction">ld d,(ix+$00)</td>
+<td class="comment-1" rowspan="2">Get row</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25734"></span>6486</td>
+<td class="instruction">inc ix</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25736"></span>6488</td>
+<td class="instruction">ld e,(ix+$00)</td>
+<td class="comment-1" rowspan="2">Get column</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25739"></span>648b</td>
+<td class="instruction">inc ix</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25741"></span>648d</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25744"></span>6490</td>
+<td class="instruction">ld de,$b080</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25747"></span>6493</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+<td class="comment-1" rowspan="1">beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25750"></span>6496</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">Point to next word</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25751"></span>6497</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1">Restore BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25752"></span>6498</td>
+<td class="instruction">djnz $647c</td>
+<td class="comment-1" rowspan="1">Repeat for each of 5 words</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25754"></span>649a</td>
+<td class="instruction">ld b,$03</td>
+<td class="comment-1" rowspan="1">B = 3</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25756"></span>649c</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="1">0.48 second delay</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25759"></span>649f</td>
+<td class="instruction">djnz $649c</td>
+<td class="comment-1" rowspan="1">Repeat 3 times</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25761"></span>64a1</td>
+<td class="instruction">jp <a href="25276.html#25294">$62ce</a></td>
+<td class="comment-1" rowspan="1">Initialse game</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25300.html">62d4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25658">Map</a></td>
+<td class="next">
+Next: <a href="25764.html">64a4</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

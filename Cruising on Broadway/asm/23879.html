@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 5d47</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="23864.html">5d38</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#23879">Map</a></td>
+<td class="next">
+Next: <a href="23899.html">5d5b</a>
+</td>
+</tr>
+</table>
+<div class="description">5d47: Set screen attributes (rows 1-22)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="24454.html">5f86</a>, <a href="25276.html">62bc</a>, <a href="25300.html#25535">63bf</a>, <a href="26196.html">6654</a> and <a href="26548.html">67b4</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23879"></span>5d47</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="23880"></span>5d48</td>
+<td class="instruction">ld a,($5cd3)</td>
+<td class="comment-1" rowspan="1">Get screen colour for rows 1-22</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23883"></span>5d4b</td>
+<td class="instruction">ld d,a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="23884"></span>5d4c</td>
+<td class="instruction">ld hl,$5800</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="23887"></span>5d4f</td>
+<td class="instruction">ld bc,$02c0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="23890"></span>5d52</td>
+<td class="instruction">ld (hl),d</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="23891"></span>5d53</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="23892"></span>5d54</td>
+<td class="instruction">dec bc</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="23893"></span>5d55</td>
+<td class="instruction">ld a,b</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="23894"></span>5d56</td>
+<td class="instruction">or c</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="23895"></span>5d57</td>
+<td class="instruction">jr nz,$5d51</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="23897"></span>5d59</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="23898"></span>5d5a</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="23864.html">5d38</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#23879">Map</a></td>
+<td class="next">
+Next: <a href="23899.html">5d5b</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

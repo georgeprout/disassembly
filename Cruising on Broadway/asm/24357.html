@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 5f25</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24342.html">5f16</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24357">Map</a></td>
+<td class="next">
+Next: <a href="24388.html">5f44</a>
+</td>
+</tr>
+</table>
+<div class="description">5f25: Beep</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="24454.html">5f86</a>, <a href="25044.html">61d4</a>, <a href="25276.html">62bc</a>, <a href="25300.html#25535">63bf</a>, <a href="25658.html#25692">645c</a>, <a href="25824.html">64e0</a>, <a href="26215.html">6667</a>, <a href="26295.html">66b7</a>, <a href="26749.html">687d</a>, <a href="27168.html">6a20</a> and <a href="27265.html">6a81</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">d</td>
+<td class="register-desc">inner loop repeat counter (pitch)</td>
+</tr>
+<tr>
+<td class="register">e</td>
+<td class="register-desc">outer loop repeat counter (length)</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24357"></span>5f25</td>
+<td class="instruction">push af</td>
+<td class="comment-1" rowspan="3">Preserve register values</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24358"></span>5f26</td>
+<td class="instruction">push bc</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24359"></span>5f27</td>
+<td class="instruction">push hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24360"></span>5f28</td>
+<td class="instruction">ld b,e</td>
+<td class="comment-1" rowspan="1">B = E outer loop counter</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24361"></span>5f29</td>
+<td class="instruction">ld c,$fe</td>
+<td class="comment-1" rowspan="1">output port number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24363"></span>5f2b</td>
+<td class="instruction">ld a,($5cd2)</td>
+<td class="comment-1" rowspan="1">A = border colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24366"></span>5f2e</td>
+<td class="instruction">ld h,a</td>
+<td class="comment-1" rowspan="1">H = border colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24367"></span>5f2f</td>
+<td class="instruction">add a,$f8</td>
+<td class="comment-1" rowspan="1">11111000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24369"></span>5f31</td>
+<td class="instruction">ld l,a</td>
+<td class="comment-1" rowspan="1">L = border colour with speaker bit set</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24370"></span>5f32</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1">Save BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24371"></span>5f33</td>
+<td class="instruction">ld b,d</td>
+<td class="comment-1" rowspan="1">B = D (inner counter)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24372"></span>5f34</td>
+<td class="instruction">out (c),l</td>
+<td class="comment-1" rowspan="1">Set border &amp; activate speaker</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24374"></span>5f36</td>
+<td class="instruction">djnz $5f34</td>
+<td class="comment-1" rowspan="1">loop B (D) times</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24376"></span>5f38</td>
+<td class="instruction">ld b,d</td>
+<td class="comment-1" rowspan="1">B = D (inner counter)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24377"></span>5f39</td>
+<td class="instruction">out (c),h</td>
+<td class="comment-1" rowspan="1">output, set border &amp; speaker bit clear</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24379"></span>5f3b</td>
+<td class="instruction">djnz $5f39</td>
+<td class="comment-1" rowspan="1">loop B (D) times</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24381"></span>5f3d</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1">Restore BC (outer counter)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24382"></span>5f3e</td>
+<td class="instruction">djnz $5f32</td>
+<td class="comment-1" rowspan="1">Loop B (E) times</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24384"></span>5f40</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="4">Restore register values</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24385"></span>5f41</td>
+<td class="instruction">pop bc</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24386"></span>5f42</td>
+<td class="instruction">pop af</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24387"></span>5f43</td>
+<td class="instruction">ret</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24342.html">5f16</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24357">Map</a></td>
+<td class="next">
+Next: <a href="24388.html">5f44</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

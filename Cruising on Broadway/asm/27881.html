@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 6ce9</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27691.html">6c2b</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#27881">Map</a></td>
+<td class="next">
+Next: <a href="28094.html">6dbe</a>
+</td>
+</tr>
+</table>
+<div class="description">6ce9: Show high score table</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="27401.html">6b09</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27881"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="27401.html#27464">6b48</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27881"></span>6ce9</td>
+<td class="instruction">call <a href="26196.html">$6654</a></td>
+<td class="comment-1" rowspan="1">Set screen to black</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27884"></span>6cec</td>
+<td class="instruction">call <a href="24342.html">$5f16</a></td>
+<td class="comment-1" rowspan="1">Clear screen</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27887"></span>6cef</td>
+<td class="instruction">call <a href="26215.html">$6667</a></td>
+<td class="comment-1" rowspan="1">Draw box on screen</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27890"></span>6cf2</td>
+<td class="instruction">ld hl,$6997</td>
+<td class="comment-1" rowspan="1">"C R U I S I N G" (part of <a href="27018.html#27028">6994</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27893"></span>6cf5</td>
+<td class="instruction">ld de,$0108</td>
+<td class="comment-1" rowspan="1">Row 1, column 8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27896"></span>6cf8</td>
+<td class="instruction">ld c,$06</td>
+<td class="comment-1" rowspan="1">yellow on black</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27898"></span>6cfa</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27901"></span>6cfd</td>
+<td class="instruction">ld hl,$69b8</td>
+<td class="comment-1" rowspan="1">"__ on Broadway" (part of <a href="27018.html#27049">69a9</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27904"></span>6d00</td>
+<td class="instruction">ld de,$020a</td>
+<td class="comment-1" rowspan="1">Row 2, column 10</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27907"></span>6d03</td>
+<td class="instruction">ld c,$05</td>
+<td class="comment-1" rowspan="1">green on black</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27909"></span>6d05</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27912"></span>6d08</td>
+<td class="instruction">ld hl,$6b9f</td>
+<td class="comment-1" rowspan="1">"H I G H  S C O R E S" <a href="27488.html#27551">6b9f</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27915"></span>6d0b</td>
+<td class="instruction">ld de,$0406</td>
+<td class="comment-1" rowspan="1">Row 4, column 6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27918"></span>6d0e</td>
+<td class="instruction">ld c,$44</td>
+<td class="comment-1" rowspan="1">Bright green on black</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27920"></span>6d10</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27923"></span>6d13</td>
+<td class="instruction">ld c,$47</td>
+<td class="comment-1" rowspan="1">bright white on Black</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27925"></span>6d15</td>
+<td class="instruction">ld hl,$6bb6</td>
+<td class="comment-1" rowspan="1">"-5-  ________  -" (high score 5 name) <a href="27488.html#27574">6bb6</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27928"></span>6d18</td>
+<td class="instruction">ld de,$1303</td>
+<td class="comment-1" rowspan="1">Row 19, column 3</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27931"></span>6d1b</td>
+<td class="instruction">ld b,$05</td>
+<td class="comment-1" rowspan="1">Counter = 5</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27933"></span>6d1d</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="2">Save for later</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27934"></span>6d1e</td>
+<td class="instruction">push de</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27935"></span>6d1f</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message (high score entry)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27938"></span>6d22</td>
+<td class="instruction">pop de</td>
+<td class="comment-1" rowspan="1">Restore DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27939"></span>6d23</td>
+<td class="instruction">ld a,d</td>
+<td class="comment-1" rowspan="3">Move up 3 rows</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27940"></span>6d24</td>
+<td class="instruction">sub $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27942"></span>6d26</td>
+<td class="instruction">ld d,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27943"></span>6d27</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1">Restore BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27944"></span>6d28</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">advance pointer to start of next high score entry</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27945"></span>6d29</td>
+<td class="instruction">djnz $6d1d</td>
+<td class="comment-1" rowspan="1">Repeat for all 5 high score entries</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27947"></span>6d2b</td>
+<td class="instruction">ld ix,$6c0f</td>
+<td class="comment-1" rowspan="1">High score 5 (score)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27951"></span>6d2f</td>
+<td class="instruction">ld de,$1317</td>
+<td class="comment-1" rowspan="1">Row 19, column 23</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27954"></span>6d32</td>
+<td class="instruction">ld b,$05</td>
+<td class="comment-1" rowspan="1">Repeat 5 times</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27956"></span>6d34</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="2">Save BC and DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27957"></span>6d35</td>
+<td class="instruction">push de</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27958"></span>6d36</td>
+<td class="instruction">ld l,(ix+$00)</td>
+<td class="comment-1" rowspan="2">HL = High score table entry (score)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27961"></span>6d39</td>
+<td class="instruction">ld h,(ix+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27964"></span>6d3c</td>
+<td class="instruction">push ix</td>
+<td class="comment-1" rowspan="1">Save IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27966"></span>6d3e</td>
+<td class="instruction">call <a href="24985.html">$6199</a></td>
+<td class="comment-1" rowspan="1">Print decimal number HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27969"></span>6d41</td>
+<td class="instruction">pop ix</td>
+<td class="comment-1" rowspan="2">Restore IX and DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27971"></span>6d43</td>
+<td class="instruction">pop de</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27972"></span>6d44</td>
+<td class="instruction">ld a,d</td>
+<td class="comment-1" rowspan="3">Subtract 3 from row number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27973"></span>6d45</td>
+<td class="instruction">sub $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27975"></span>6d47</td>
+<td class="instruction">ld d,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27976"></span>6d48</td>
+<td class="instruction">inc ix</td>
+<td class="comment-1" rowspan="2">Advance IX to next score in high score table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27978"></span>6d4a</td>
+<td class="instruction">inc ix</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27980"></span>6d4c</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1">Restore BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27981"></span>6d4d</td>
+<td class="instruction">djnz $6d34</td>
+<td class="comment-1" rowspan="1">Repeat for all 5 high score (scores)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27983"></span>6d4f</td>
+<td class="instruction">ld a,$04</td>
+<td class="comment-1" rowspan="1">Printer STOP command</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27985"></span>6d51</td>
+<td class="instruction">out ($fb),a</td>
+<td class="comment-1" rowspan="1">Send command to printer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27987"></span>6d53</td>
+<td class="instruction">in a,($fb)</td>
+<td class="comment-1" rowspan="1">Get printer status</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27989"></span>6d55</td>
+<td class="instruction">bit 6,a</td>
+<td class="comment-1" rowspan="1">Bit 6 is set low by the printer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27991"></span>6d57</td>
+<td class="instruction">jp nz,<a href="28094.html#28178">$6e12</a></td>
+<td class="comment-1" rowspan="1">Jump if no printer connected</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27994"></span>6d5a</td>
+<td class="instruction">ld hl,$6e30</td>
+<td class="comment-1" rowspan="1">"Press C for a copy" <a href="28198.html#28208">6e30</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27997"></span>6d5d</td>
+<td class="instruction">ld de,$1506</td>
+<td class="comment-1" rowspan="1">Row 21, column 6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28000"></span>6d60</td>
+<td class="instruction">ld c,$46</td>
+<td class="comment-1" rowspan="1">Bright yellow on black</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28002"></span>6d62</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28005"></span>6d65</td>
+<td class="instruction">ld hl,$6e44</td>
+<td class="comment-1" rowspan="1">"or any other key for the menu" <a href="28198.html#28228">6e44</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28008"></span>6d68</td>
+<td class="instruction">ld de,$1601</td>
+<td class="comment-1" rowspan="1">Row 22, column 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28011"></span>6d6b</td>
+<td class="instruction">ld c,$46</td>
+<td class="comment-1" rowspan="1">Bright yellow on black</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28013"></span>6d6d</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28016"></span>6d70</td>
+<td class="instruction">call <a href="23855.html">$5d2f</a></td>
+<td class="comment-1" rowspan="1">Get keypress</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28019"></span>6d73</td>
+<td class="instruction">jr z,$6d70</td>
+<td class="comment-1" rowspan="1">Loop until a key is pressed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28021"></span>6d75</td>
+<td class="instruction">ld bc,$fefe</td>
+<td class="comment-1" rowspan="1">Row VCXZ^</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28024"></span>6d78</td>
+<td class="instruction">in a,(c)</td>
+<td class="comment-1" rowspan="1">Read keyboard</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28026"></span>6d7a</td>
+<td class="instruction">bit 3,a</td>
+<td class="comment-1" rowspan="1">Bit 3 = "C" key</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28028"></span>6d7c</td>
+<td class="instruction">jp nz,<a href="27401.html#27426">$6b22</a></td>
+<td class="comment-1" rowspan="1">Jump to menu if C was not pressed (skip printing)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28031"></span>6d7f</td>
+<td class="instruction">ld hl,$64b0</td>
+<td class="comment-1" rowspan="1">"(blank line)" <a href="25774.html">64ae</a> (skip first two spaces as slightly shorter)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28034"></span>6d82</td>
+<td class="instruction">ld de,$1501</td>
+<td class="comment-1" rowspan="1">Row 21, column 6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28037"></span>6d85</td>
+<td class="instruction">ld c,$00</td>
+<td class="comment-1" rowspan="1">black on black</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28039"></span>6d87</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message (clear press C message)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28042"></span>6d8a</td>
+<td class="instruction">ld hl,$64b0</td>
+<td class="comment-1" rowspan="1">"(blank line)" <a href="25774.html">64ae</a> (skip first two spaces as slightly shorter)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28045"></span>6d8d</td>
+<td class="instruction">ld de,$1601</td>
+<td class="comment-1" rowspan="1">Row 22, column 6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28048"></span>6d90</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message (clear or any other key message)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28051"></span>
+<div class="comments">
+<div class="paragraph">
+There was a regular cash prize for the highest recorded scores, this section of code will generate a validation code. This would be invisible on screen, but would appear on the print out.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28051"></span>6d93</td>
+<td class="instruction">ld de,($6c17)</td>
+<td class="comment-1" rowspan="1">DE = High score 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28055"></span>6d97</td>
+<td class="instruction">ld a,d</td>
+<td class="comment-1" rowspan="1">lsb of highest score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28056"></span>6d98</td>
+<td class="instruction">xor $35</td>
+<td class="comment-1" rowspan="1">XOR lsb with 0x35</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28058"></span>6d9a</td>
+<td class="instruction">ld l,a</td>
+<td class="comment-1" rowspan="1">save in L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28059"></span>6d9b</td>
+<td class="instruction">ld a,e</td>
+<td class="comment-1" rowspan="1">msb of highest score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28060"></span>6d9c</td>
+<td class="instruction">xor $55</td>
+<td class="comment-1" rowspan="1">XOR msb with 0x55</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28062"></span>6d9e</td>
+<td class="instruction">ld h,a</td>
+<td class="comment-1" rowspan="1">Save in HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28063"></span>6d9f</td>
+<td class="instruction">ld de,$160d</td>
+<td class="comment-1" rowspan="1">Row 22, column 13</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28066"></span>6da2</td>
+<td class="instruction">ld c,$00</td>
+<td class="comment-1" rowspan="1">black on black</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28068"></span>6da4</td>
+<td class="instruction">call <a href="24985.html">$6199</a></td>
+<td class="comment-1" rowspan="1">Print decimal number HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28071"></span>6da7</td>
+<td class="instruction">ld hl,$6bb3</td>
+<td class="comment-1" rowspan="1">"No." <a href="27488.html#27571">6bb3</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28074"></span>6daa</td>
+<td class="instruction">ld de,$1609</td>
+<td class="comment-1" rowspan="1">Row 22, column 9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28077"></span>6dad</td>
+<td class="instruction">ld c,$00</td>
+<td class="comment-1" rowspan="1">black on black</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28079"></span>6daf</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="13">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28082"></span>6db2</td>
+<td class="instruction">nop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28083"></span>6db3</td>
+<td class="instruction">nop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28084"></span>6db4</td>
+<td class="instruction">nop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28085"></span>6db5</td>
+<td class="instruction">nop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28086"></span>6db6</td>
+<td class="instruction">nop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28087"></span>6db7</td>
+<td class="instruction">nop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28088"></span>6db8</td>
+<td class="instruction">nop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28089"></span>6db9</td>
+<td class="instruction">nop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28090"></span>6dba</td>
+<td class="instruction">nop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28091"></span>6dbb</td>
+<td class="instruction">nop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28092"></span>6dbc</td>
+<td class="instruction">nop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28093"></span>6dbd</td>
+<td class="instruction">nop</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27691.html">6c2b</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#27881">Map</a></td>
+<td class="next">
+Next: <a href="28094.html">6dbe</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

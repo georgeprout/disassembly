@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 5d09</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="23802.html">5cfa</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#23817">Map</a></td>
+<td class="next">
+Next: <a href="23824.html">5d10</a>
+</td>
+</tr>
+</table>
+<div class="description">5d09: Test for movement down</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="23802.html">5cfa</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23817"></span>5d09</td>
+<td class="instruction">bit 2,c</td>
+<td class="comment-1" rowspan="1">bit 2 of direction (0x44 = Down)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23819"></span>5d0b</td>
+<td class="instruction">jr z,<a href="23824.html">$5d10</a></td>
+<td class="comment-1" rowspan="1">Not moving down, check for right</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23821"></span>5d0d</td>
+<td class="instruction">add hl,de</td>
+<td class="comment-1" rowspan="1">Add 0x20 to position (down one row)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23822"></span>5d0e</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="1">Get attribute of position down of current</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23823"></span>5d0f</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="23802.html">5cfa</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#23817">Map</a></td>
+<td class="next">
+Next: <a href="23824.html">5d10</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

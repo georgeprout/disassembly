@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 5eed</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24002.html">5dc2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24301">Map</a></td>
+<td class="next">
+Next: <a href="24324.html">5f04</a>
+</td>
+</tr>
+</table>
+<div class="description">5eed: Print bit 7 terminated string</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="24454.html">5f86</a>, <a href="24985.html#25010">61b2</a>, <a href="25232.html#25243">629b</a>, <a href="25276.html">62bc</a>, <a href="25300.html#25535">63bf</a>, <a href="25658.html#25692">645c</a>, <a href="25824.html">64e0</a>, <a href="26295.html">66b7</a>, error:$6797, <a href="26548.html">67b4</a>, <a href="26749.html">687d</a>, <a href="27265.html">6a81</a>, <a href="27680.html">6c20</a>, <a href="28094.html">6dbe</a> and <a href="28352.html">6ec0</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">de</td>
+<td class="register-desc">= Screen position</td>
+</tr>
+<tr>
+<td class="register">hl</td>
+<td class="register-desc">= Pointer to text</td>
+</tr>
+<tr>
+<td class="register">c</td>
+<td class="register-desc">= Attributes</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24301"></span>5eed</td>
+<td class="instruction">ld a,$16</td>
+<td class="comment-1" rowspan="1">Load A with "AT" token</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24303"></span>5eef</td>
+<td class="instruction">rst $10</td>
+<td class="comment-1" rowspan="1">Print "AT"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24304"></span>5ef0</td>
+<td class="instruction">ld a,d</td>
+<td class="comment-1" rowspan="1">Load A with "ROW"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24305"></span>5ef1</td>
+<td class="instruction">rst $10</td>
+<td class="comment-1" rowspan="1">Print "ROW"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24306"></span>5ef2</td>
+<td class="instruction">ld a,e</td>
+<td class="comment-1" rowspan="1">Load A with "COLUMN"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24307"></span>5ef3</td>
+<td class="instruction">rst $10</td>
+<td class="comment-1" rowspan="1">Print "COLUMN"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24308"></span>5ef4</td>
+<td class="instruction">ld a,c</td>
+<td class="comment-1" rowspan="1">Load A with attribute</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24309"></span>5ef5</td>
+<td class="instruction">ld ($5c8f),a</td>
+<td class="comment-1" rowspan="1">Save attribute to ATTR-T system variable</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24312"></span>5ef8</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="1">Get next character of message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24313"></span>5ef9</td>
+<td class="instruction">bit 7,a</td>
+<td class="comment-1" rowspan="1">Test for bit 7 (last character)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24315"></span>5efb</td>
+<td class="instruction">push af</td>
+<td class="comment-1" rowspan="1">Save AF for later</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24316"></span>5efc</td>
+<td class="instruction">res 7,a</td>
+<td class="comment-1" rowspan="1">Clear bit 7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24318"></span>5efe</td>
+<td class="instruction">rst $10</td>
+<td class="comment-1" rowspan="1">Print character</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24319"></span>5eff</td>
+<td class="instruction">pop af</td>
+<td class="comment-1" rowspan="1">Get AF back</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24320"></span>5f00</td>
+<td class="instruction">ret nz</td>
+<td class="comment-1" rowspan="1">Exit if bit 7 was set</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24321"></span>5f01</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">Point to next character in message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24322"></span>5f02</td>
+<td class="instruction">jr $5ef8</td>
+<td class="comment-1" rowspan="1">Repeat</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24002.html">5dc2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24301">Map</a></td>
+<td class="next">
+Next: <a href="24324.html">5f04</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

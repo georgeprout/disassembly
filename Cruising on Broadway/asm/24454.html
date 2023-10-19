@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 5f86</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24441.html">5f79</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24454">Map</a></td>
+<td class="next">
+Next: <a href="24654.html">604e</a>
+</td>
+</tr>
+</table>
+<div class="description">5f86: Draw next frame</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="25276.html">62bc</a> and <a href="27401.html">6b09</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24454"></span>5f86</td>
+<td class="instruction">ld hl,$5cd0</td>
+<td class="comment-1" rowspan="1">Frame number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24457"></span>5f89</td>
+<td class="instruction">inc (hl)</td>
+<td class="comment-1" rowspan="1">Increase frame number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24458"></span>5f8a</td>
+<td class="instruction">ld hl,($6066)</td>
+<td class="comment-1" rowspan="1">HL points to frame data</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24461"></span>5f8d</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="1">First byte of frame data (04/05/02/06) Frame 1 green Frame 2 cyan Frame 3 red Frame 4 yellow</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24462"></span>5f8e</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">Pointer to next byte</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24463"></span>5f8f</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1">Save HL for later</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24464"></span>5f90</td>
+<td class="instruction">ld ($5cd2),a</td>
+<td class="comment-1" rowspan="1">Save border colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24467"></span>5f93</td>
+<td class="instruction">out ($fe),a</td>
+<td class="comment-1" rowspan="1">Set border colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24469"></span>5f95</td>
+<td class="instruction">rlca</td>
+<td class="comment-1" rowspan="3">x8 (20/28/10/30)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24470"></span>5f96</td>
+<td class="instruction">rlca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24471"></span>5f97</td>
+<td class="instruction">rlca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24472"></span>5f98</td>
+<td class="instruction">bit 5,a</td>
+<td class="comment-1" rowspan="2">0x10 NZ for frames 3 &amp; 4</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24474"></span>5f9a</td>
+<td class="instruction">jr nz,$5f9e</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24476"></span>5f9c</td>
+<td class="instruction">add a,$07</td>
+<td class="comment-1" rowspan="1">(27/2F)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24478"></span>5f9e</td>
+<td class="instruction">ld ($5cd1),a</td>
+<td class="comment-1" rowspan="1">Save bottom colour (27/2f/10/30) 0 0 100 111 Frame 1 White on green 0 0 101 111 Frame 2 white on cyan 0 0 010 000 Frame 3 black on red 0 0 110 000 Frame 4 black on yellow</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24481"></span>5fa1</td>
+<td class="instruction">call <a href="24441.html">$5f79</a></td>
+<td class="comment-1" rowspan="1">Set colour on bottom two lines</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24484"></span>5fa4</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1">Black</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24485"></span>5fa5</td>
+<td class="instruction">ld ($5cd3),a</td>
+<td class="comment-1" rowspan="1">Save screen colour for rows 1-22</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24488"></span>5fa8</td>
+<td class="instruction">call <a href="23879.html">$5d47</a></td>
+<td class="comment-1" rowspan="1">Set colour on rows 1-22</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24491"></span>5fab</td>
+<td class="instruction">call <a href="24342.html">$5f16</a></td>
+<td class="comment-1" rowspan="1">Clear screen</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24494"></span>
+<div class="comments">
+<div class="paragraph">
+Get first line start position
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24494"></span>5fae</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1">Restore HL (pointer to second byte of frame data)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24495"></span>5faf</td>
+<td class="instruction">ld b,(hl)</td>
+<td class="comment-1" rowspan="1">B = number of line pairs in frame</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24496"></span>5fb0</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1">Save BC for later</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24497"></span>5fb1</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">Point to next byte of frame data</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24498"></span>5fb2</td>
+<td class="instruction">ld d,(hl)</td>
+<td class="comment-1" rowspan="1">D = Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24499"></span>5fb3</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">advance pointer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24500"></span>5fb4</td>
+<td class="instruction">ld e,(hl)</td>
+<td class="comment-1" rowspan="1">E = X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24501"></span>5fb5</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">advance pointer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24502"></span>5fb6</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1">Save pointer for later</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24503"></span>5fb7</td>
+<td class="instruction">call <a href="24388.html">$5f44</a></td>
+<td class="comment-1" rowspan="1">Get screen &amp; attribute addresses from DE position</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24506"></span>
+<div class="comments">
+<div class="paragraph">
+Draw vertical line
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24506"></span>5fba</td>
+<td class="instruction">ld (hl),$07</td>
+<td class="comment-1" rowspan="1">Set position attribute to white</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24508"></span>5fbc</td>
+<td class="instruction">ld a,$04</td>
+<td class="comment-1" rowspan="1">A = 4</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24510"></span>5fbe</td>
+<td class="instruction">add a,b</td>
+<td class="comment-1" rowspan="1">screen address + 4 (move 4 pixels down)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24511"></span>5fbf</td>
+<td class="instruction">ld h,a</td>
+<td class="comment-1" rowspan="2">HL = new screen address (skiped 4 lines)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24512"></span>5fc0</td>
+<td class="instruction">ld l,c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24513"></span>5fc1</td>
+<td class="instruction">ld b,$04</td>
+<td class="comment-1" rowspan="1">B = 4</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24515"></span>5fc3</td>
+<td class="instruction">set 4,(hl)</td>
+<td class="comment-1" rowspan="1">Set bit 4 (single pixel on screen)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24517"></span>5fc5</td>
+<td class="instruction">inc h</td>
+<td class="comment-1" rowspan="1">next row on screen</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24518"></span>5fc6</td>
+<td class="instruction">djnz $5fc3</td>
+<td class="comment-1" rowspan="1">repeat, draw 4 pixels down</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24520"></span>5fc8</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1">Restore frame data pointer to HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24521"></span>5fc9</td>
+<td class="instruction">ld b,(hl)</td>
+<td class="comment-1" rowspan="1">Get line length from frame data</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24522"></span>5fca</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">advance pointer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24523"></span>5fcb</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1">Save pointer for later</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24524"></span>5fcc</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1">Save length for later</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24525"></span>5fcd</td>
+<td class="instruction">inc d</td>
+<td class="comment-1" rowspan="1">add 1 to Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24526"></span>5fce</td>
+<td class="instruction">call <a href="24388.html">$5f44</a></td>
+<td class="comment-1" rowspan="1">Get screen and attribute address for position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24529"></span>5fd1</td>
+<td class="instruction">ld (hl),$07</td>
+<td class="comment-1" rowspan="1">Set attribute to white</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24531"></span>5fd3</td>
+<td class="instruction">ld h,b</td>
+<td class="comment-1" rowspan="2">HL = screen address</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24532"></span>5fd4</td>
+<td class="instruction">ld l,c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24533"></span>5fd5</td>
+<td class="instruction">ld b,$08</td>
+<td class="comment-1" rowspan="1">counter = 8 (all pixel rows)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24535"></span>5fd7</td>
+<td class="instruction">set 4,(hl)</td>
+<td class="comment-1" rowspan="1">Draw on screen single pixel</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24537"></span>5fd9</td>
+<td class="instruction">inc h</td>
+<td class="comment-1" rowspan="1">move down one pixel row</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24538"></span>5fda</td>
+<td class="instruction">djnz $5fd7</td>
+<td class="comment-1" rowspan="1">repeat for whole character</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24540"></span>5fdc</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1">Restore length</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24541"></span>5fdd</td>
+<td class="instruction">djnz $5fcc</td>
+<td class="comment-1" rowspan="1">Repeat for length of line</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24543"></span>5fdf</td>
+<td class="instruction">inc d</td>
+<td class="comment-1" rowspan="1">add one pixel row</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24544"></span>5fe0</td>
+<td class="instruction">call <a href="24388.html">$5f44</a></td>
+<td class="comment-1" rowspan="1">Get screen and attribute address for position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24547"></span>5fe3</td>
+<td class="instruction">ld (hl),$07</td>
+<td class="comment-1" rowspan="1">Set attribute to white</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24549"></span>5fe5</td>
+<td class="instruction">ld h,b</td>
+<td class="comment-1" rowspan="2">HL = screen address</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24550"></span>5fe6</td>
+<td class="instruction">ld l,c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24551"></span>5fe7</td>
+<td class="instruction">ld b,$04</td>
+<td class="comment-1" rowspan="1">Counter = 4 pixel rows</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24553"></span>5fe9</td>
+<td class="instruction">set 4,(hl)</td>
+<td class="comment-1" rowspan="1">Draw single pixel</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24555"></span>5feb</td>
+<td class="instruction">inc h</td>
+<td class="comment-1" rowspan="1">down one pixel row</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24556"></span>5fec</td>
+<td class="instruction">djnz $5fe9</td>
+<td class="comment-1" rowspan="1">repeat for top 4 pixels of current position</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24558"></span>
+<div class="comments">
+<div class="paragraph">
+Draw horizontal line
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24558"></span>5fee</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1">Restore frame data pointer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24559"></span>5fef</td>
+<td class="instruction">ld d,(hl)</td>
+<td class="comment-1" rowspan="1">D = Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24560"></span>5ff0</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">advance pointer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24561"></span>5ff1</td>
+<td class="instruction">ld e,(hl)</td>
+<td class="comment-1" rowspan="1">E = X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24562"></span>5ff2</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">advance pointer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24563"></span>5ff3</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1">Save frame data pointer for later</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24564"></span>5ff4</td>
+<td class="instruction">call <a href="24388.html">$5f44</a></td>
+<td class="comment-1" rowspan="1">Get BC = screen address, HL = attribute address for position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24567"></span>5ff7</td>
+<td class="instruction">ex de,hl</td>
+<td class="comment-1" rowspan="1">DE = attribute address HL = YX position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24568"></span>5ff8</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1">Restore frame data point to HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24569"></span>5ff9</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="1">Get length of line in A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24570"></span>5ffa</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1">Save frame data pointer for later</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24571"></span>5ffb</td>
+<td class="instruction">ld h,b</td>
+<td class="comment-1" rowspan="2">HL = screen address</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24572"></span>5ffc</td>
+<td class="instruction">ld l,c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24573"></span>5ffd</td>
+<td class="instruction">ld b,a</td>
+<td class="comment-1" rowspan="1">B = line length</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24574"></span>5ffe</td>
+<td class="instruction">ld a,$07</td>
+<td class="comment-1" rowspan="1">A = 7 white</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24576"></span>6000</td>
+<td class="instruction">inc h</td>
+<td class="comment-1" rowspan="4">HL = screen address + 4 (pixel) rows</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24577"></span>6001</td>
+<td class="instruction">inc h</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24578"></span>6002</td>
+<td class="instruction">inc h</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24579"></span>6003</td>
+<td class="instruction">inc h</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24580"></span>6004</td>
+<td class="instruction">ld (de),a</td>
+<td class="comment-1" rowspan="1">Set attribute to white</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24581"></span>6005</td>
+<td class="instruction">ld (hl),$1f</td>
+<td class="comment-1" rowspan="1">Set screen data to ...11111 (draw 5 pixels)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24583"></span>6007</td>
+<td class="instruction">inc de</td>
+<td class="comment-1" rowspan="2">Move both addresses right by one character</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24584"></span>6008</td>
+<td class="instruction">inc hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24585"></span>6009</td>
+<td class="instruction">ld (de),a</td>
+<td class="comment-1" rowspan="1">Set attribute to white</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24586"></span>600a</td>
+<td class="instruction">ld (hl),$ff</td>
+<td class="comment-1" rowspan="1">Set screen data to solid line</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24588"></span>600c</td>
+<td class="instruction">djnz $6007</td>
+<td class="comment-1" rowspan="1">Repeat for length of line (in B)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24590"></span>600e</td>
+<td class="instruction">inc de</td>
+<td class="comment-1" rowspan="2">move both addresses right by one character</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24591"></span>600f</td>
+<td class="instruction">inc hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24592"></span>6010</td>
+<td class="instruction">ld (de),a</td>
+<td class="comment-1" rowspan="1">Set attribute to white</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24593"></span>6011</td>
+<td class="instruction">ld (hl),$f0</td>
+<td class="comment-1" rowspan="1">Set screen data to 1111.... (4 pixels)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24595"></span>6013</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1">Restore frame data pointer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24596"></span>6014</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1">Restore number of lines counter</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24597"></span>6015</td>
+<td class="instruction">ld a,b</td>
+<td class="comment-1" rowspan="7">Do some shifting for sound effect</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24598"></span>6016</td>
+<td class="instruction">rrca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24599"></span>6017</td>
+<td class="instruction">rrca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24600"></span>6018</td>
+<td class="instruction">rrca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24601"></span>6019</td>
+<td class="instruction">ld e,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24602"></span>601a</td>
+<td class="instruction">rrca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24603"></span>601b</td>
+<td class="instruction">ld d,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24604"></span>601c</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+<td class="comment-1" rowspan="1">beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24607"></span>601f</td>
+<td class="instruction">djnz $5fb0</td>
+<td class="comment-1" rowspan="1">Repeat for each line pair in frame</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24609"></span>6021</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">Advance frame data pointer to section after the lines data</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24610"></span>6022</td>
+<td class="instruction">ld de,$5cd7</td>
+<td class="comment-1" rowspan="1">Frame data will be stored at <a href="23760.html#23767">5cd7</a> (chaser position upto but not frame score)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24613"></span>6025</td>
+<td class="instruction">ld bc,$0012</td>
+<td class="comment-1" rowspan="1">0x12 (18) bytes</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24616"></span>6028</td>
+<td class="instruction">ldir</td>
+<td class="comment-1" rowspan="1">Initialise frame variables</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24618"></span>602a</td>
+<td class="instruction">dec hl</td>
+<td class="comment-1" rowspan="2">move pointer back to number of tiles to collect</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24619"></span>602b</td>
+<td class="instruction">dec hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24620"></span>602c</td>
+<td class="instruction">ld c,$02</td>
+<td class="comment-1" rowspan="1">One word long</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24622"></span>602e</td>
+<td class="instruction">ldir</td>
+<td class="comment-1" rowspan="1">copy to frame score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24624"></span>6030</td>
+<td class="instruction">ld ($6066),hl</td>
+<td class="comment-1" rowspan="1">HL now points to the start of the next frame, save it to <a href="24678.html">6066</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24627"></span>6033</td>
+<td class="instruction">ld hl,($5cdf)</td>
+<td class="comment-1" rowspan="1">HL = player (start) position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24630"></span>6036</td>
+<td class="instruction">ld (hl),$6e</td>
+<td class="comment-1" rowspan="1">Set player postion to bright yellow on cyan</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24632"></span>6038</td>
+<td class="instruction">ld a,($5cd0)</td>
+<td class="comment-1" rowspan="1">Get frame number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24635"></span>603b</td>
+<td class="instruction">add a,$30</td>
+<td class="comment-1" rowspan="1">Convert to ASCII</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24637"></span>603d</td>
+<td class="instruction">ld ($605f),a</td>
+<td class="comment-1" rowspan="1">Modify Frame message at <a href="24654.html">604e</a> with frame number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24640"></span>6040</td>
+<td class="instruction">ld hl,$604e</td>
+<td class="comment-1" rowspan="1">"---FRAME 1---" <a href="24654.html">604e</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24643"></span>6043</td>
+<td class="instruction">ld de,$1604</td>
+<td class="comment-1" rowspan="1">Row 22, column 4</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24646"></span>6046</td>
+<td class="instruction">ld a,($5cd1)</td>
+<td class="comment-1" rowspan="1">Get colour for bottom two rows</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24649"></span>6049</td>
+<td class="instruction">ld c,a</td>
+<td class="comment-1" rowspan="1">Use this colour to display frame number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24650"></span>604a</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print frame number at bottom of screen</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24653"></span>604d</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1">all done here</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24441.html">5f79</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24454">Map</a></td>
+<td class="next">
+Next: <a href="24654.html">604e</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

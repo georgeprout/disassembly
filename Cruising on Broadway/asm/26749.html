@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 687d</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26728.html">6868</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26749">Map</a></td>
+<td class="next">
+Next: <a href="27000.html">6978</a>
+</td>
+</tr>
+</table>
+<div class="description">687d: Show a spectrum and demonstrate the keys</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="27000.html">6978</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26749"></span>687d</td>
+<td class="instruction">call <a href="26548.html">$67b4</a></td>
+<td class="comment-1" rowspan="1">Display keyboard and set screen to yellow</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26752"></span>6880</td>
+<td class="instruction">ld a,$f6</td>
+<td class="comment-1" rowspan="1">SMC...</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26754"></span>6882</td>
+<td class="instruction">ld ($6874),a</td>
+<td class="comment-1" rowspan="1">change JR to f6 - disables keyboard interrupt</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26757"></span>6885</td>
+<td class="instruction">ld hl,$6810</td>
+<td class="comment-1" rowspan="1">"TO MOVE :-"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26760"></span>6888</td>
+<td class="instruction">ld de,$1104</td>
+<td class="comment-1" rowspan="1">Row 17, column 4</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26763"></span>688b</td>
+<td class="instruction">ld c,$31</td>
+<td class="comment-1" rowspan="1">Blue on yellow</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26765"></span>688d</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26768"></span>6890</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="1">0.48 second delay</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26771"></span>
+<div class="comments">
+<div class="paragraph">
+LEFT
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26771"></span>6893</td>
+<td class="instruction">ld hl,$5981</td>
+<td class="comment-1" rowspan="1">attributes area</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26774"></span>6896</td>
+<td class="instruction">ld b,$04</td>
+<td class="comment-1" rowspan="1">count = 4</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26776"></span>6898</td>
+<td class="instruction">ld (hl),$8f</td>
+<td class="comment-1" rowspan="1">Set attributes to 8f flashing white on blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26778"></span>689a</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">next</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26779"></span>689b</td>
+<td class="instruction">djnz $6898</td>
+<td class="comment-1" rowspan="1">repeat 4 times</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26781"></span>689d</td>
+<td class="instruction">ld hl,$681a</td>
+<td class="comment-1" rowspan="1">"&lt; LEFT " <a href="26640.html#26650">681a</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26784"></span>68a0</td>
+<td class="instruction">ld de,$1300</td>
+<td class="comment-1" rowspan="1">Row 19, column 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26787"></span>68a3</td>
+<td class="instruction">ld c,$8f</td>
+<td class="comment-1" rowspan="1">Flashing white on blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26789"></span>68a5</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26792"></span>68a8</td>
+<td class="instruction">call <a href="26728.html">$6868</a></td>
+<td class="comment-1" rowspan="1">3.5 second pause</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26795"></span>
+<div class="comments">
+<div class="paragraph">
+RIGHT
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26795"></span>68ab</td>
+<td class="instruction">ld hl,$5981</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26798"></span>68ae</td>
+<td class="instruction">ld b,$04</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="26800"></span>68b0</td>
+<td class="instruction">ld (hl),$0f</td>
+<td class="comment-1" rowspan="3">= white on blue (stop flashing)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26802"></span>68b2</td>
+<td class="instruction">inc hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26803"></span>68b3</td>
+<td class="instruction">djnz $68b0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26805"></span>68b5</td>
+<td class="instruction">ld hl,$681a</td>
+<td class="comment-1" rowspan="3">"&lt; LEFT " <a href="26640.html#26650">681a</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26808"></span>68b8</td>
+<td class="instruction">ld de,$1300</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26811"></span>68bb</td>
+<td class="instruction">ld c,$0f</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26813"></span>68bd</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26816"></span>68c0</td>
+<td class="instruction">ld hl,$5987</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26819"></span>68c3</td>
+<td class="instruction">ld b,$07</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="26821"></span>68c5</td>
+<td class="instruction">ld (hl),$97</td>
+<td class="comment-1" rowspan="3">Flashing white on red</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26823"></span>68c7</td>
+<td class="instruction">inc hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26824"></span>68c8</td>
+<td class="instruction">djnz $68c5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26826"></span>68ca</td>
+<td class="instruction">ld hl,$6821</td>
+<td class="comment-1" rowspan="2">"RIGHT &gt;" <a href="26640.html#26657">6821</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26829"></span>68cd</td>
+<td class="instruction">ld de,$1308</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26832"></span>68d0</td>
+<td class="instruction">ld c,$97</td>
+<td class="comment-1" rowspan="1">Flashing white on red</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26834"></span>68d2</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26837"></span>68d5</td>
+<td class="instruction">call <a href="26728.html">$6868</a></td>
+<td class="comment-1" rowspan="1">3.5 second pause</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26840"></span>
+<div class="comments">
+<div class="paragraph">
+UP
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26840"></span>68d8</td>
+<td class="instruction">ld hl,$5987</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26843"></span>68db</td>
+<td class="instruction">ld b,$07</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="26845"></span>68dd</td>
+<td class="instruction">ld (hl),$17</td>
+<td class="comment-1" rowspan="3">white on red (stop flashing)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26847"></span>68df</td>
+<td class="instruction">inc hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26848"></span>68e0</td>
+<td class="instruction">djnz $68dd</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26850"></span>68e2</td>
+<td class="instruction">ld hl,$6821</td>
+<td class="comment-1" rowspan="2">"RIGHT &gt;" <a href="26640.html#26657">6821</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26853"></span>68e5</td>
+<td class="instruction">ld de,$1308</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26856"></span>68e8</td>
+<td class="instruction">ld c,$17</td>
+<td class="comment-1" rowspan="1">white on red (stop flashing)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26858"></span>68ea</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26861"></span>68ed</td>
+<td class="instruction">ld hl,$5952</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26864"></span>68f0</td>
+<td class="instruction">ld b,$0d</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="26866"></span>68f2</td>
+<td class="instruction">ld (hl),$9f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26868"></span>68f4</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26869"></span>68f5</td>
+<td class="instruction">djnz $68f2</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26871"></span>68f7</td>
+<td class="instruction">ld hl,$6829</td>
+<td class="comment-1" rowspan="3">"^  UP  ^" <a href="26640.html#26665">6829</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26874"></span>68fa</td>
+<td class="instruction">ld de,$1112</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26877"></span>68fd</td>
+<td class="instruction">ld c,$9f</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26879"></span>68ff</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26882"></span>6902</td>
+<td class="instruction">call <a href="26728.html">$6868</a></td>
+<td class="comment-1" rowspan="6">3.5 second pause</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26885"></span>6905</td>
+<td class="instruction">ld hl,$5952</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26888"></span>6908</td>
+<td class="instruction">ld b,$0d</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26890"></span>690a</td>
+<td class="instruction">ld (hl),$1f</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26892"></span>690c</td>
+<td class="instruction">inc hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26893"></span>690d</td>
+<td class="instruction">djnz $690a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26895"></span>690f</td>
+<td class="instruction">ld hl,$6829</td>
+<td class="comment-1" rowspan="3">"^  UP  ^" <a href="26640.html#26665">6829</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26898"></span>6912</td>
+<td class="instruction">ld c,$1f</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26900"></span>6914</td>
+<td class="instruction">ld de,$1112</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26903"></span>6917</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26906"></span>
+<div class="comments">
+<div class="paragraph">
+DOWN
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26906"></span>691a</td>
+<td class="instruction">ld hl,$5990</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26909"></span>691d</td>
+<td class="instruction">ld b,$0d</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="26911"></span>691f</td>
+<td class="instruction">ld (hl),$a7</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26913"></span>6921</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26914"></span>6922</td>
+<td class="instruction">djnz $691f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26916"></span>6924</td>
+<td class="instruction">ld hl,$6837</td>
+<td class="comment-1" rowspan="3">"v DOWN v" <a href="26640.html#26679">6837</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26919"></span>6927</td>
+<td class="instruction">ld de,$1311</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26922"></span>692a</td>
+<td class="instruction">ld c,$a7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26924"></span>692c</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26927"></span>
+<div class="comments">
+<div class="paragraph">
+Stop flashing
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26927"></span>692f</td>
+<td class="instruction">call <a href="26728.html">$6868</a></td>
+<td class="comment-1" rowspan="6">3.5 second pause</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26930"></span>6932</td>
+<td class="instruction">ld hl,$5990</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26933"></span>6935</td>
+<td class="instruction">ld b,$0d</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26935"></span>6937</td>
+<td class="instruction">ld (hl),$27</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26937"></span>6939</td>
+<td class="instruction">inc hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26938"></span>693a</td>
+<td class="instruction">djnz $6937</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26940"></span>693c</td>
+<td class="instruction">ld hl,$6837</td>
+<td class="comment-1" rowspan="3">"v DOWN v" <a href="26640.html#26679">6837</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26943"></span>693f</td>
+<td class="instruction">ld de,$1311</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26946"></span>6942</td>
+<td class="instruction">ld c,$27</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26948"></span>6944</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26951"></span>
+<div class="comments">
+<div class="paragraph">
+Other instructions
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26951"></span>6947</td>
+<td class="instruction">ld hl,$6845</td>
+<td class="comment-1" rowspan="1">"Any other key makes a" <a href="26640.html#26693">6845</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26954"></span>694a</td>
+<td class="instruction">ld de,$1506</td>
+<td class="comment-1" rowspan="1">Row 21, column 6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26957"></span>694d</td>
+<td class="instruction">ld c,$31</td>
+<td class="comment-1" rowspan="1">Blue on yellow</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26959"></span>694f</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26962"></span>6952</td>
+<td class="instruction">ld hl,$685a</td>
+<td class="comment-1" rowspan="1">"temporary gap" <a href="26640.html#26714">685a</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26965"></span>6955</td>
+<td class="instruction">ld de,$160a</td>
+<td class="comment-1" rowspan="1">Row 22, column 10</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26968"></span>6958</td>
+<td class="instruction">ld c,$31</td>
+<td class="comment-1" rowspan="1">Blue on yellow</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26970"></span>695a</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26973"></span>695d</td>
+<td class="instruction">call <a href="26728.html">$6868</a></td>
+<td class="comment-1" rowspan="1">3.5 second pause</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26976"></span>6960</td>
+<td class="instruction">ld de,$2080</td>
+<td class="comment-1" rowspan="2">beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26979"></span>6963</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26982"></span>6966</td>
+<td class="instruction">ld hl,$6647</td>
+<td class="comment-1" rowspan="1">"Press any key" <a href="25999.html#26183">6647</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26985"></span>6969</td>
+<td class="instruction">ld de,$0111</td>
+<td class="comment-1" rowspan="1">Row 1, column 17</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26988"></span>696c</td>
+<td class="instruction">ld c,$b9</td>
+<td class="comment-1" rowspan="1">Blue on yellow</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26990"></span>696e</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26993"></span>6971</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="2">Enable keyboard interrupt routine SMC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26994"></span>6972</td>
+<td class="instruction">ld ($6874),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26997"></span>6975</td>
+<td class="instruction">jp $6893</td>
+<td class="comment-1" rowspan="1">JP to RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26728.html">6868</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26749">Map</a></td>
+<td class="next">
+Next: <a href="27000.html">6978</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

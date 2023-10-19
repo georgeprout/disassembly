@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 6199</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24975.html">618f</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24985">Map</a></td>
+<td class="next">
+Next: <a href="25044.html">61d4</a>
+</td>
+</tr>
+</table>
+<div class="description">6199: Convert number to ASCII and print</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="25276.html">62bc</a>, <a href="25300.html#25535">63bf</a> and <a href="25824.html">64e0</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24985"></span>6199</td>
+<td class="instruction">push af</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24986"></span>619a</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24987"></span>619b</td>
+<td class="instruction">push de</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24988"></span>619c</td>
+<td class="instruction">ld bc,$618a</td>
+<td class="comment-1" rowspan="1">Pointer to temporary ASCII store</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24991"></span>619f</td>
+<td class="instruction">ld ix,$618f</td>
+<td class="comment-1" rowspan="1">10000/1000/100/10/1 table</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24995"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="24985.html#25010">61b2</a>.
+</div>
+<div class="paragraph">
+Repeat for each of the five digits 10000/1000/100/10/1
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24995"></span>61a3</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24996"></span>61a4</td>
+<td class="instruction">ld d,(ix+$00)</td>
+<td class="comment-1" rowspan="2">Load 10000 or 1000 or 100 or 10 or 1 into DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24999"></span>61a7</td>
+<td class="instruction">ld e,(ix+$01)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25002"></span>61aa</td>
+<td class="instruction">or a</td>
+<td class="comment-1" rowspan="1">Clear flags</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25003"></span>61ab</td>
+<td class="instruction">sbc hl,de</td>
+<td class="comment-1" rowspan="1">Subtract 10000/1000/100/10/1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25005"></span>61ad</td>
+<td class="instruction">jr c,$61b2</td>
+<td class="comment-1" rowspan="1">JR if HL was &lt; 10000/1000/100/10/1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25007"></span>61af</td>
+<td class="instruction">inc a</td>
+<td class="comment-1" rowspan="1">Add one to the A (identify digit)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25008"></span>61b0</td>
+<td class="instruction">jr $61aa</td>
+<td class="comment-1" rowspan="1">Loop until digit has been identified</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25010"></span>61b2</td>
+<td class="instruction">add hl,de</td>
+<td class="comment-1" rowspan="1">Digit has been identified, undo the last subtraction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25011"></span>61b3</td>
+<td class="instruction">add a,$30</td>
+<td class="comment-1" rowspan="1">Convert digit to ASCII</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25013"></span>61b5</td>
+<td class="instruction">ld (bc),a</td>
+<td class="comment-1" rowspan="1">Save digit in temporary store</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25014"></span>61b6</td>
+<td class="instruction">inc bc</td>
+<td class="comment-1" rowspan="1">Move pointer to next temporary store digit</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25015"></span>61b7</td>
+<td class="instruction">inc ix</td>
+<td class="comment-1" rowspan="2">Move IX to next in sequence 10000/1000/100/10/1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25017"></span>61b9</td>
+<td class="instruction">inc ix</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25019"></span>61bb</td>
+<td class="instruction">ld a,$01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25021"></span>61bd</td>
+<td class="instruction">cp e</td>
+<td class="comment-1" rowspan="1">Check if we are on the last digit (units)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25022"></span>61be</td>
+<td class="instruction">jr nz,$61a3</td>
+<td class="comment-1" rowspan="1">Loop if not</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25024"></span>61c0</td>
+<td class="instruction">ld hl,$618e</td>
+<td class="comment-1" rowspan="1">HL points to the 5th digit</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25027"></span>61c3</td>
+<td class="instruction">set 7,(hl)</td>
+<td class="comment-1" rowspan="1">Set bit 7 to indicate end of ASCII string</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25029"></span>61c5</td>
+<td class="instruction">ld l,$89</td>
+<td class="comment-1" rowspan="1">HL now one byte beofre the first digit</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25031"></span>61c7</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">Point HL to the first/next digit to be printed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25032"></span>61c8</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="1">Get the character to printed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25033"></span>61c9</td>
+<td class="instruction">cp $30</td>
+<td class="comment-1" rowspan="1">Is it a leading zero?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25035"></span>61cb</td>
+<td class="instruction">jr z,$61c7</td>
+<td class="comment-1" rowspan="1">If so, look at next digit for the start of the string</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25037"></span>61cd</td>
+<td class="instruction">pop de</td>
+<td class="comment-1" rowspan="1">Restore print at X/Y postion</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25038"></span>61ce</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1">Restore print colour attribute</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25039"></span>61cf</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print string routine</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25042"></span>61d2</td>
+<td class="instruction">pop af</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25043"></span>61d3</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24975.html">618f</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24985">Map</a></td>
+<td class="next">
+Next: <a href="25044.html">61d4</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

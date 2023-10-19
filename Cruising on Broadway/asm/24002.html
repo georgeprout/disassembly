@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 5dc2</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="23911.html">5d67</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24002">Map</a></td>
+<td class="next">
+Next: <a href="24301.html">5eed</a>
+</td>
+</tr>
+</table>
+<div class="description">5dc2: Move Player, then chaser(s)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="23911.html">5d67</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24002"></span>5dc2</td>
+<td class="instruction">ld bc,$bffe</td>
+<td class="comment-1" rowspan="1">HJKLe keys</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24005"></span>5dc5</td>
+<td class="instruction">ld d,$11</td>
+<td class="comment-1" rowspan="1">Direction (11=UP) 22=RIGHT 44=DOWN 88=LEFT</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24007"></span>5dc7</td>
+<td class="instruction">call <a href="23858.html">$5d32</a></td>
+<td class="comment-1" rowspan="1">Check for up keypress</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24010"></span>5dca</td>
+<td class="instruction">jr nz,$5de6</td>
+<td class="comment-1" rowspan="1">Jump if UP pressed (d holds direction) <a href="24002.html#24038">5de6</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24012"></span>5dcc</td>
+<td class="instruction">rlc d</td>
+<td class="comment-1" rowspan="2">Direction reversed 11=UP 22=RIGHT (44=DOWN) 88=LEFT</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24014"></span>5dce</td>
+<td class="instruction">rlc d</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24016"></span>5dd0</td>
+<td class="instruction">ld b,$7f</td>
+<td class="comment-1" rowspan="1">Keyboard BNMs_ (down)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24018"></span>5dd2</td>
+<td class="instruction">call <a href="23858.html">$5d32</a></td>
+<td class="comment-1" rowspan="1">Check for down keypress</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24021"></span>5dd5</td>
+<td class="instruction">jr nz,$5de6</td>
+<td class="comment-1" rowspan="1">Jump if DOWN pressed (d holds direction) <a href="24002.html#24038">5de6</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24023"></span>5dd7</td>
+<td class="instruction">rlc d</td>
+<td class="comment-1" rowspan="1">Direction 11=UP 22=RIGHT 44=DOWN (88=LEFT)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24025"></span>5dd9</td>
+<td class="instruction">ld b,$fe</td>
+<td class="comment-1" rowspan="1">Keybord VCXZ^</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24027"></span>5ddb</td>
+<td class="instruction">in a,(c)</td>
+<td class="comment-1" rowspan="1">Get keypress</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24029"></span>5ddd</td>
+<td class="instruction">cpl</td>
+<td class="comment-1" rowspan="1">Invert bits (so high=pressed)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24030"></span>5dde</td>
+<td class="instruction">and $03</td>
+<td class="comment-1" rowspan="1">Mask off unused keys</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24032"></span>5de0</td>
+<td class="instruction">jr nz,$5de6</td>
+<td class="comment-1" rowspan="1">Jump if LEFT pressed (d holds direction) <a href="24002.html#24038">5de6</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24034"></span>5de2</td>
+<td class="instruction">rlc d</td>
+<td class="comment-1" rowspan="2">Direction must be 11=UP (22=RIGHT) 44=DOWN 88=LEFT</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24036"></span>5de4</td>
+<td class="instruction">rlc d</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24038"></span>5de6</td>
+<td class="instruction">ld a,d</td>
+<td class="comment-1" rowspan="2">D is current direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24039"></span>5de7</td>
+<td class="instruction">ld c,d</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24040"></span>5de8</td>
+<td class="instruction">ld ($5ce1),a</td>
+<td class="comment-1" rowspan="1">Save player direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24043"></span>5deb</td>
+<td class="instruction">call <a href="23792.html">$5cf0</a></td>
+<td class="comment-1" rowspan="1">Check next track position in selected direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24046"></span>5dee</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1">Set flags</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24047"></span>5def</td>
+<td class="instruction">jr z,$5e0b</td>
+<td class="comment-1" rowspan="1">Jump if black (not part of track, so don't move) <a href="24002.html#24075">5e0b</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24049"></span>5df1</td>
+<td class="instruction">cp $07</td>
+<td class="comment-1" rowspan="1">Is next track postion white (uncollected)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24051"></span>5df3</td>
+<td class="instruction">ex de,hl</td>
+<td class="comment-1" rowspan="1">Save new position in DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24052"></span>5df4</td>
+<td class="instruction">jr nz,$5dfd</td>
+<td class="comment-1" rowspan="1">Skip next bit if already collected <a href="24002.html#24061">5dfd</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24054"></span>5df6</td>
+<td class="instruction">ld hl,($5ce7)</td>
+<td class="comment-1" rowspan="3">Reduce number of squares left by 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24057"></span>5df9</td>
+<td class="instruction">dec hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24058"></span>5dfa</td>
+<td class="instruction">ld ($5ce7),hl</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24061"></span>5dfd</td>
+<td class="instruction">ld hl,($5cdf)</td>
+<td class="comment-1" rowspan="1">Get player (old) position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24064"></span>5e00</td>
+<td class="instruction">ld (hl),$04</td>
+<td class="comment-1" rowspan="1">Change colour to green</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24066"></span>5e02</td>
+<td class="instruction">ex de,hl</td>
+<td class="comment-1" rowspan="1">Restore new position from DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24067"></span>5e03</td>
+<td class="instruction">ld (hl),$75</td>
+<td class="comment-1" rowspan="1">Change colour to bright cyan on yellow</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24069"></span>5e05</td>
+<td class="instruction">ld ($5cdf),hl</td>
+<td class="comment-1" rowspan="1">Save player new position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24072"></span>5e08</td>
+<td class="instruction">call <a href="23840.html">$5d20</a></td>
+<td class="comment-1" rowspan="1">Collision detection</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24075"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="23911.html">5d67</a>.
+</div>
+<div class="paragraph">
+Move chaser
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24075"></span>5e0b</td>
+<td class="instruction">ld a,($5cd9)</td>
+<td class="comment-1" rowspan="1">Get chaser 1 direction (11=UP) 22=RIGHT 44=DOWN 88=LEFT</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24078"></span>5e0e</td>
+<td class="instruction">rlca</td>
+<td class="comment-1" rowspan="1">Check for clockwise turn (11-&gt;22)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24079"></span>5e0f</td>
+<td class="instruction">ld c,a</td>
+<td class="comment-1" rowspan="1">C stores direction in check track subroutine</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24080"></span>5e10</td>
+<td class="instruction">call <a href="23802.html">$5cfa</a></td>
+<td class="comment-1" rowspan="1">Check closewise track position for chaser 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24083"></span>5e13</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1">Set flags</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24084"></span>5e14</td>
+<td class="instruction">jr z,$5e1c</td>
+<td class="comment-1" rowspan="1">Cannot turn clockwise, jump ahead</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24086"></span>5e16</td>
+<td class="instruction">bit 0,(iy+$3e)</td>
+<td class="comment-1" rowspan="1">0x5c3a + 3e = 0x5c78 (FRAMES system variable)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24090"></span>5e1a</td>
+<td class="instruction">jr nz,$5e3e</td>
+<td class="comment-1" rowspan="1">Randomly jump, chaser will turn clockwsie <a href="24002.html#24126">5e3e</a></td>
+</tr>
+<tr>
+<td class="address-2"><span id="24092"></span>5e1c</td>
+<td class="instruction">rrc c</td>
+<td class="comment-1" rowspan="2">direction anti clockwise (22-&gt;88)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24094"></span>5e1e</td>
+<td class="instruction">rrc c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24096"></span>5e20</td>
+<td class="instruction">call <a href="23802.html">$5cfa</a></td>
+<td class="comment-1" rowspan="1">Check anticlockwise position for chaser 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24099"></span>5e23</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1">Set flags</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24100"></span>5e24</td>
+<td class="instruction">jr z,$5e2c</td>
+<td class="comment-1" rowspan="1">Cannot turn anticlockwise, jump ahead</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24102"></span>5e26</td>
+<td class="instruction">bit 1,(iy+$3e)</td>
+<td class="comment-1" rowspan="1">bit 1 of FRAMES system variable</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24106"></span>5e2a</td>
+<td class="instruction">jr z,$5e3e</td>
+<td class="comment-1" rowspan="1">randomly jump, chaser will turn anticlockwise</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24108"></span>5e2c</td>
+<td class="instruction">rlc c</td>
+<td class="comment-1" rowspan="1">direction change (88-&gt;11)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24110"></span>5e2e</td>
+<td class="instruction">call <a href="23802.html">$5cfa</a></td>
+<td class="comment-1" rowspan="1">Check original direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24113"></span>5e31</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1">Set flags</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24114"></span>5e32</td>
+<td class="instruction">jr nz,$5e3e</td>
+<td class="comment-1" rowspan="1">Way ahead is clear, jump</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24116"></span>5e34</td>
+<td class="instruction">rrc c</td>
+<td class="comment-1" rowspan="2">reverse direction (11-&gt;44)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24118"></span>5e36</td>
+<td class="instruction">rrc c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24120"></span>5e38</td>
+<td class="instruction">call <a href="23802.html">$5cfa</a></td>
+<td class="comment-1" rowspan="1">Check behind chaser</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24123"></span>5e3b</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1">set flags</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24124"></span>5e3c</td>
+<td class="instruction">jr z,$5e53</td>
+<td class="comment-1" rowspan="1">cannot move that way, jump</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24126"></span>
+<div class="comments">
+<div class="paragraph">
+Chaser changes direction
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24126"></span>5e3e</td>
+<td class="instruction">ld a,c</td>
+<td class="comment-1" rowspan="1">A holds new direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24127"></span>5e3f</td>
+<td class="instruction">ld ($5cd9),a</td>
+<td class="comment-1" rowspan="1">Save chaser direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24130"></span>5e42</td>
+<td class="instruction">ld de,($5cd7)</td>
+<td class="comment-1" rowspan="1">Get chaser 1 position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24134"></span>5e46</td>
+<td class="instruction">ld a,($5cda)</td>
+<td class="comment-1" rowspan="5">Stored background colour of chaser</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24137"></span>5e49</td>
+<td class="instruction">ld (de),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24138"></span>5e4a</td>
+<td class="instruction">ld a,(hl)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24139"></span>5e4b</td>
+<td class="instruction">ld ($5cda),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24142"></span>5e4e</td>
+<td class="instruction">ld (hl),$fa</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24144"></span>5e50</td>
+<td class="instruction">ld ($5cd7),hl</td>
+<td class="comment-1" rowspan="1">Save chaser 1 position</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24147"></span>
+<div class="comments">
+<div class="paragraph">
+Detect collisions, slow game down,
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24147"></span>5e53</td>
+<td class="instruction">call <a href="23840.html">$5d20</a></td>
+<td class="comment-1" rowspan="1">Collision detection</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24150"></span>5e56</td>
+<td class="instruction">ld a,($5cd5)</td>
+<td class="comment-1" rowspan="1">Get game speed</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24153"></span>5e59</td>
+<td class="instruction">ld b,$00</td>
+<td class="comment-1" rowspan="3">delay ~1mS</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24155"></span>5e5b</td>
+<td class="instruction">djnz $5e5b</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24157"></span>5e5d</td>
+<td class="instruction">dec a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24158"></span>5e5e</td>
+<td class="instruction">jr nz,$5e59</td>
+<td class="comment-1" rowspan="1">Repeat 0x28 40mS/0x20 32mS/0x18 24mS/0x10 16mS times</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24160"></span>5e60</td>
+<td class="instruction">ld hl,$5cd3</td>
+<td class="comment-1" rowspan="1">Screen colour for rows 1-22</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24163"></span>5e63</td>
+<td class="instruction">ld a,($5ce7)</td>
+<td class="comment-1" rowspan="11">Get number of squares left</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24166"></span>5e66</td>
+<td class="instruction">cp (hl)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24167"></span>5e67</td>
+<td class="instruction">ld (hl),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24168"></span>5e68</td>
+<td class="instruction">ld b,$10</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24170"></span>5e6a</td>
+<td class="instruction">jr z,$5e79</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24172"></span>5e6c</td>
+<td class="instruction">ld a,($5cd2)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24175"></span>5e6f</td>
+<td class="instruction">or $f8</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24177"></span>5e71</td>
+<td class="instruction">out ($fe),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24179"></span>5e73</td>
+<td class="instruction">djnz $5e71</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24181"></span>5e75</td>
+<td class="instruction">and $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24183"></span>5e77</td>
+<td class="instruction">out ($fe),a</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24185"></span>5e79</td>
+<td class="instruction">ld a,($5cd6)</td>
+<td class="comment-1" rowspan="2">Second chaser enabled flag</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24188"></span>5e7c</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24189"></span>5e7d</td>
+<td class="instruction">jp z,<a href="23899.html">$5d5b</a></td>
+<td class="comment-1" rowspan="1">No second chaser, jump to check if the frame is complete</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24192"></span>
+<div class="comments">
+<div class="paragraph">
+Second chaser is enabled
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24192"></span>5e80</td>
+<td class="instruction">call <a href="23834.html">$5d1a</a></td>
+<td class="comment-1" rowspan="1">Check chaser 2 collision</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24195"></span>5e83</td>
+<td class="instruction">ld a,($5cdd)</td>
+<td class="comment-1" rowspan="26">Get chaser 2 direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24198"></span>5e86</td>
+<td class="instruction">rlca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24199"></span>5e87</td>
+<td class="instruction">ld c,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24200"></span>5e88</td>
+<td class="instruction">call <a href="23797.html">$5cf5</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24203"></span>5e8b</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24204"></span>5e8c</td>
+<td class="instruction">jr z,$5e94</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24206"></span>5e8e</td>
+<td class="instruction">bit 0,(iy+$3e)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24210"></span>5e92</td>
+<td class="instruction">jr z,$5eb6</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24212"></span>5e94</td>
+<td class="instruction">rrc c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24214"></span>5e96</td>
+<td class="instruction">rrc c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24216"></span>5e98</td>
+<td class="instruction">call <a href="23797.html">$5cf5</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24219"></span>5e9b</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24220"></span>5e9c</td>
+<td class="instruction">jr z,$5ea4</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24222"></span>5e9e</td>
+<td class="instruction">bit 1,(iy+$3e)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24226"></span>5ea2</td>
+<td class="instruction">jr nz,$5eb6</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24228"></span>5ea4</td>
+<td class="instruction">rlc c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24230"></span>5ea6</td>
+<td class="instruction">call <a href="23797.html">$5cf5</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24233"></span>5ea9</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24234"></span>5eaa</td>
+<td class="instruction">jr nz,$5eb6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24236"></span>5eac</td>
+<td class="instruction">rrc c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24238"></span>5eae</td>
+<td class="instruction">rrc c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24240"></span>5eb0</td>
+<td class="instruction">call <a href="23797.html">$5cf5</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24243"></span>5eb3</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24244"></span>5eb4</td>
+<td class="instruction">jr z,$5ecb</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24246"></span>5eb6</td>
+<td class="instruction">ld a,c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24247"></span>5eb7</td>
+<td class="instruction">ld ($5cdd),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24250"></span>5eba</td>
+<td class="instruction">ld de,($5cdb)</td>
+<td class="comment-1" rowspan="1">Get chaser 2 position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24254"></span>5ebe</td>
+<td class="instruction">ld a,($5cde)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24257"></span>5ec1</td>
+<td class="instruction">ld (de),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24258"></span>5ec2</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24259"></span>5ec3</td>
+<td class="instruction">ld ($5cde),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24262"></span>5ec6</td>
+<td class="instruction">ld (hl),$fa</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24264"></span>5ec8</td>
+<td class="instruction">ld ($5cdb),hl</td>
+<td class="comment-1" rowspan="1">Save chaser 2 position</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24267"></span>5ecb</td>
+<td class="instruction">call <a href="23834.html">$5d1a</a></td>
+<td class="comment-1" rowspan="1">Check chaser 2 collision</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24270"></span>
+<div class="comments">
+<div class="paragraph">
+Have chasers collided?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24270"></span>5ece</td>
+<td class="instruction">ld a,($5cda)</td>
+<td class="comment-1" rowspan="1">A = Chaser 1 background colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24273"></span>5ed1</td>
+<td class="instruction">cp $fa</td>
+<td class="comment-1" rowspan="1">Chaser 1 background is chaser 2?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24275"></span>5ed3</td>
+<td class="instruction">jr nz,$5edd</td>
+<td class="comment-1" rowspan="1">No, check chaser 2</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24277"></span>
+<div class="comments">
+<div class="paragraph">
+Chaser 1 background is chaser 2 - needs correcting
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24277"></span>5ed5</td>
+<td class="instruction">ld a,($5cde)</td>
+<td class="comment-1" rowspan="1">Get chaser 2 background colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24280"></span>5ed8</td>
+<td class="instruction">ld ($5cda),a</td>
+<td class="comment-1" rowspan="1">Save chaser 1 background colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24283"></span>5edb</td>
+<td class="instruction">jr $5eea</td>
+<td class="comment-1" rowspan="1">Check if frame is complete</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24285"></span>
+<div class="comments">
+<div class="paragraph">
+Check chaser 2 background
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24285"></span>5edd</td>
+<td class="instruction">ld a,($5cde)</td>
+<td class="comment-1" rowspan="1">Get chaser 2 background colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24288"></span>5ee0</td>
+<td class="instruction">cp $fa</td>
+<td class="comment-1" rowspan="1">fa = Flashing bright white on red</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24290"></span>5ee2</td>
+<td class="instruction">jr nz,$5eea</td>
+<td class="comment-1" rowspan="1">Check if frame is complete</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24292"></span>
+<div class="comments">
+<div class="paragraph">
+Chaser 2 background is chaser 1 - needs correcting
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24292"></span>5ee4</td>
+<td class="instruction">ld a,($5cda)</td>
+<td class="comment-1" rowspan="1">Get chaser 1 background to restore</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24295"></span>5ee7</td>
+<td class="instruction">ld ($5cde),a</td>
+<td class="comment-1" rowspan="1">Save it as chaser 2 background</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24298"></span>
+<div class="comments">
+<div class="paragraph">
+All done here
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24298"></span>5eea</td>
+<td class="instruction">jp <a href="23899.html">$5d5b</a></td>
+<td class="comment-1" rowspan="1">Check if frame is complete</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="23911.html">5d67</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24002">Map</a></td>
+<td class="next">
+Next: <a href="24301.html">5eed</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

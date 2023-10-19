@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 64e0</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25774.html">64ae</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25824">Map</a></td>
+<td class="next">
+Next: <a href="25958.html">6566</a>
+</td>
+</tr>
+</table>
+<div class="description">64e0: Game over</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="25276.html">62bc</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25824"></span>64e0</td>
+<td class="instruction">ld b,$40</td>
+<td class="comment-1" rowspan="2">Repeat 40 times</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25826"></span>64e2</td>
+<td class="instruction">ld de,$ff02</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25829"></span>64e5</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+<td class="comment-1" rowspan="1">beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25832"></span>64e8</td>
+<td class="instruction">ld de,$01ff</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25835"></span>64eb</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+<td class="comment-1" rowspan="1">beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25838"></span>64ee</td>
+<td class="instruction">djnz $64e2</td>
+<td class="comment-1" rowspan="1">repeat</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25840"></span>64f0</td>
+<td class="instruction">ld a,$0f</td>
+<td class="comment-1" rowspan="1">white on blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25842"></span>64f2</td>
+<td class="instruction">ld ($5cd1),a</td>
+<td class="comment-1" rowspan="1">Save colour for bottom two rows</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25845"></span>64f5</td>
+<td class="instruction">ld a,$39</td>
+<td class="comment-1" rowspan="1">blue on white</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25847"></span>64f7</td>
+<td class="instruction">ld ($5cd3),a</td>
+<td class="comment-1" rowspan="1">Save screen colour for rows 1-22</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25850"></span>64fa</td>
+<td class="instruction">ld a,$01</td>
+<td class="comment-1" rowspan="1">blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25852"></span>64fc</td>
+<td class="instruction">ld ($5cd2),a</td>
+<td class="comment-1" rowspan="1">Save border colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25855"></span>64ff</td>
+<td class="instruction">out ($fe),a</td>
+<td class="comment-1" rowspan="1">Set border to blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25857"></span>6501</td>
+<td class="instruction">call <a href="24441.html">$5f79</a></td>
+<td class="comment-1" rowspan="1">Set colour for rowws 23 &amp; 24</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25860"></span>6504</td>
+<td class="instruction">ld de,$1607</td>
+<td class="comment-1" rowspan="1">Row 22, column 7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25863"></span>6507</td>
+<td class="instruction">ld bc,$160f</td>
+<td class="comment-1" rowspan="10">counter = 22, colour = white on blue</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25866"></span>650a</td>
+<td class="instruction">push bc</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25867"></span>650b</td>
+<td class="instruction">push de</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25868"></span>650c</td>
+<td class="instruction">ld a,$17</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25870"></span>650e</td>
+<td class="instruction">sub b</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25871"></span>650f</td>
+<td class="instruction">sla a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25873"></span>6511</td>
+<td class="instruction">sla a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25875"></span>6513</td>
+<td class="instruction">sla a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25877"></span>6515</td>
+<td class="instruction">ld d,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25878"></span>6516</td>
+<td class="instruction">ld e,$30</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25880"></span>6518</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+<td class="comment-1" rowspan="1">beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25883"></span>651b</td>
+<td class="instruction">pop de</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25884"></span>651c</td>
+<td class="instruction">ld hl,$64ce</td>
+<td class="comment-1" rowspan="1">"GAME OVER" <a href="25774.html#25806">64ce</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25887"></span>651f</td>
+<td class="instruction">ld a,d</td>
+<td class="comment-1" rowspan="1">A = current row</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25888"></span>6520</td>
+<td class="instruction">dec d</td>
+<td class="comment-1" rowspan="1">D = one row up</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25889"></span>6521</td>
+<td class="instruction">push de</td>
+<td class="comment-1" rowspan="2">Save for later</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25890"></span>6522</td>
+<td class="instruction">push af</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25891"></span>6523</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message (game over)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25894"></span>6526</td>
+<td class="instruction">pop af</td>
+<td class="comment-1" rowspan="1">Restore AF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25895"></span>6527</td>
+<td class="instruction">ld d,a</td>
+<td class="comment-1" rowspan="1">A = one row up</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25896"></span>6528</td>
+<td class="instruction">ld e,$00</td>
+<td class="comment-1" rowspan="1">column 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25898"></span>652a</td>
+<td class="instruction">ld hl,$64ae</td>
+<td class="comment-1" rowspan="1">(blank line) #$64ae</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25901"></span>652d</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25904"></span>6530</td>
+<td class="instruction">pop de</td>
+<td class="comment-1" rowspan="2">Restore registers</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25905"></span>6531</td>
+<td class="instruction">pop bc</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25906"></span>6532</td>
+<td class="instruction">djnz $650a</td>
+<td class="comment-1" rowspan="1">Repeat 22 times</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25908"></span>6534</td>
+<td class="instruction">ld hl,$64ae</td>
+<td class="comment-1" rowspan="1">(blank line) #$64ae</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25911"></span>6537</td>
+<td class="instruction">ld de,$0000</td>
+<td class="comment-1" rowspan="1">Row 0, column 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25914"></span>653a</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="1">Print message (clear line)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25917"></span>653d</td>
+<td class="instruction">ld hl,$64ce</td>
+<td class="comment-1" rowspan="1">"GAME OVER" #$64ce</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25920"></span>6540</td>
+<td class="instruction">ld de,$0007</td>
+<td class="comment-1" rowspan="1">Row 0, column 7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25923"></span>6543</td>
+<td class="instruction">ld c,$8f</td>
+<td class="comment-1" rowspan="1">Flashing white on blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25925"></span>6545</td>
+<td class="instruction">call <a href="24301.html">$5eed</a></td>
+<td class="comment-1" rowspan="2">Print message (game over)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25928"></span>6548</td>
+<td class="instruction">ld de,$ff80</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25931"></span>654b</td>
+<td class="instruction">call <a href="24357.html">$5f25</a></td>
+<td class="comment-1" rowspan="1">beep</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25934"></span>654e</td>
+<td class="instruction">call <a href="25063.html">$61e7</a></td>
+<td class="comment-1" rowspan="1">0.48 second delay</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25937"></span>6551</td>
+<td class="instruction">ld hl,$6581</td>
+<td class="comment-1" rowspan="1">last byte of " You scored a total of" <a href="25958.html#25964">656c</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25940"></span>6554</td>
+<td class="instruction">ld de,$0500</td>
+<td class="comment-1" rowspan="1">Row 5, column 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25943"></span>6557</td>
+<td class="instruction">call <a href="25232.html">$6290</a></td>
+<td class="comment-1" rowspan="1">Scroll text in from left</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25946"></span>655a</td>
+<td class="instruction">ld hl,($5ceb)</td>
+<td class="comment-1" rowspan="1">Total score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25949"></span>655d</td>
+<td class="instruction">ld de,$0518</td>
+<td class="comment-1" rowspan="1">Row 5, column 24</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25952"></span>6560</td>
+<td class="instruction">ld c,$4f</td>
+<td class="comment-1" rowspan="1">Bright white on blue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25954"></span>6562</td>
+<td class="instruction">call <a href="24985.html">$6199</a></td>
+<td class="comment-1" rowspan="1">Print decimal number HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25957"></span>6565</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25774.html">64ae</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25824">Map</a></td>
+<td class="next">
+Next: <a href="25958.html">6566</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

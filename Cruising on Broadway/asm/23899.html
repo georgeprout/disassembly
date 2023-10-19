@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cruising on Broadway: Routine at 5d5b</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Cruising on Broadway</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="23879.html">5d47</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#23899">Map</a></td>
+<td class="next">
+Next: <a href="23911.html">5d67</a>
+</td>
+</tr>
+</table>
+<div class="description">5d5b: Check if frame is complete</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="24002.html">5dc2</a>, <a href="24002.html#24285">5edd</a> and <a href="25276.html">62bc</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="23899"></span>5d5b</td>
+<td class="instruction">ld hl,($5ce7)</td>
+<td class="comment-1" rowspan="1">Get number of squares left to collect</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23902"></span>5d5e</td>
+<td class="instruction">ld a,h</td>
+<td class="comment-1" rowspan="2">Or H and L together to see if both are zero</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23903"></span>5d5f</td>
+<td class="instruction">or l</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23904"></span>5d60</td>
+<td class="instruction">jr nz,<a href="23911.html">$5d67</a></td>
+<td class="comment-1" rowspan="1">JP if frame is not yet complete</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23906"></span>5d62</td>
+<td class="instruction">ld bc,($5ce2)</td>
+<td class="comment-1" rowspan="1">Copy the time bonus into BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="23910"></span>5d66</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1">Frame is complete, RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="23879.html">5d47</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#23899">Map</a></td>
+<td class="next">
+Next: <a href="23911.html">5d67</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>
